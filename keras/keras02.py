@@ -34,6 +34,7 @@ model.add(Dense(5,input_dim=1,activation='relu'))
 model.add(Dense(3))
 model.add(Dense(1,activation='relu'))
 
+
 model.summary()
 
 # model.compile(loss='mse',optimizer='adam',metrics=['accuracy'])

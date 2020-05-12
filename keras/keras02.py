@@ -37,14 +37,15 @@ model.add(Dense(1,activation='relu'))
 
 model.summary()
 
-# model.compile(loss='mse',optimizer='adam',metrics=['accuracy'])
+model.compile(loss='mse',optimizer='adam',metrics=['accuracy'])
 
-# model.fit(x_train,y_train,epochs=10,batch_size=100,validation_data=(x_train,y_train))
+model.fit(x_train,y_train,epochs=10,validation_data=(x_train,y_train))
+model.fit
 
-# loss,acc=model.evaluate(x_test,y_test,batch_size=1)
+loss,acc=model.evaluate(x_test,y_test,batch_size=1)
 
-# print(f"loss : {loss}")
-# print(f"acc : {acc}")
+print(f"loss : {loss}")
+print(f"acc : {acc}")
 
-# output=model.predict(x_test)
-# print(f'결과물 : {output}')
+output=model.predict(x_test)
+print(f'결과물 : {output}')

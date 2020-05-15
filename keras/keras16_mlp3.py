@@ -1,10 +1,10 @@
 import numpy as np
 
-x=np.array([range(1,101),range(311,411),range(100)])
-y=np.array(range(711,811))
+x=np.array(range(1,101))
+y=np.array([range(101,201),range(711,811),range(100)])
 
-x=np.transpose(x)
-# y=np.transpose(y)
+# x=np.transpose(x)
+y=np.transpose(y)
 
 print(x.shape)
 print(y.shape)
@@ -20,10 +20,10 @@ x_train,x_test,y_train,y_test=tts(x,y,train_size=0.8)
 from keras.models import Model,Sequential
 from keras.layers import Input,Dense
 
-input1 = Input(shape=(3,))#input
+input1 = Input(shape=(1,))#input
 dense1= Dense(5, activation="relu")(input1)
 dense2= Dense(4)(dense1)
-output1= Dense(1)(dense2)#output
+output1= Dense(3)(dense2)#output
 
 model=Model(inputs=input1,outputs=output1)
 

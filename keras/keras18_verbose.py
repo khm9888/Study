@@ -21,9 +21,10 @@ from keras.models import Model,Sequential
 from keras.layers import Input,Dense
 
 input1 = Input(shape=(3,))#input
-dense1= Dense(5, activation="relu")(input1)
-dense2= Dense(4)(dense1)
-output1= Dense(1)(dense2)#output
+dense1= Dense(10, activation="relu")(input1)
+dense2= Dense(10)(dense1)
+dense3= Dense(10)(dense2)
+output1= Dense(1)(dense3)#output
 
 model=Model(inputs=input1,outputs=output1)
 
@@ -37,7 +38,7 @@ model.summary()
 
 #3. 훈련
 model.compile(loss="mse",optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,epochs=100,#validation_data=(x_valid,y_valid))
+model.fit(x_train,y_train,epochs=32,verbose='1',batch_size=8,#validation_data=(x_valid,y_valid))
           validation_split=0.25)
 
 #4. 평가 예측
@@ -59,3 +60,8 @@ print(f"r2:{r2_score(y_test,y_predict)}")
 
 
 
+#1. R2 >= 0.5
+##2. layer 5개 이상
+##3. node 10개 이상
+#4. batch_size=8
+#5. epochs 30

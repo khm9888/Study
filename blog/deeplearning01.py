@@ -37,7 +37,7 @@ model.summary()
 #만들어진 모델의 node 개수나 parameter의 개수 등을 보여줍니다.(터미널 창 통해서)
 
 #3.훈련- 만들어진 모델을 학습을 시킨다.
-
+6
 model.compile(loss="mse",optimizer="adam",metrics=["accuracy"])
 model.fit(x_train,y_train,epochs=100,validation_data=(x_valid,y_valid))
 #학습은 train이라는 변수로, 검증 테스트는 valid 변수로 값을 넣어준다. 

@@ -45,6 +45,8 @@ model.fit(x_train,y_train,epochs=32,verbose='1',batch_size=8,#validation_data=(x
 
 mse,acc=model.evaluate(x_test,y_test)
 
+print(model.metrics_names)
+
 print(f"mse:{mse}")
 print(f"acc:{acc}")
 

@@ -69,7 +69,8 @@ model.summary()
 
 #3.훈련
 model.compile(loss="mse",optimizer="adam",metrics=["accuracy"])
-model.fit([x1_train,x2_train],[y1_train,y2_train,y3_train],epochs=100,verbose=1)#,validation_split=0.25,verbose=3)
+model.fit([x1_train,x2_train],[y1_train,y2_train,y3_train],epochs=100,verbose=1)
+#,validation_split=0.25,verbose=3)
 
 #데이터처리
 

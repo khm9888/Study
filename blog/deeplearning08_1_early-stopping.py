@@ -1,4 +1,4 @@
-#RNN-LSTM_connect
+#RNN-LSTM
 
 #데이터 1~5,2~6,3~7을 넣으면 6,7,8이 출력되도록 할 것
 
@@ -25,23 +25,37 @@ print(y_train.shape)
 from keras.models import Model
 from keras.layers import Input,Dense,LSTM
 
+from keras.callbacks import EarlyStopping,TensorBoard
+
 input1=Input(shape=(5,1))
-dense1=LSTM(5,activation="relu",return_sequences=True)(input1)
-dense2=LSTM(5)(dense1)
+dense1=LSTM(5,activation="relu")(input1)
+dense2=Dense(5)(dense1)
 dense3=Dense(10)(dense2)
-dense4=Dense(10)(dense3)
-dense5=Dense(5)(dense4)
+dense4=Dense(100)(dense3)
+dense5=Dense(30)(dense4)
 output1=Dense(1)(dense5)
 
 model=Model(inputs=input1,outputs=output1)
+
+
+model.save("deeplearning.h5")
+print("저장완료!!!!!!!!!!!!!!!!!")
 
 model.summary()
 
 #트레이닝
 
 model.compile(loss="mse", optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=1,epochs=100,verbose=2)
-model.fit(x_train,y_train,batch_size=1,epochs=100,verbose=3)
+
+early_stopping=EarlyStopping(monitor="loss", patience=20, mode="min")
+
+from keras.callbacks import TensorBoard
+
+tb_hist=TensorBoard(
+    log_dir='graph', histogram_freq=0, write_graph=True, write_images=True
+)
+
+model.fit(x_train,y_train,batch_size=1,epochs=1000,verbose=0,callbacks=[tb_hist])
 
 #테스트
 
@@ -62,8 +76,5 @@ print(f"y_pre:{y_pre}")
 
 # def rmse(y_test,y_pre):
 #     return np.sqrt(y_test,y_pre)
-
-
-
-# for i in y_test.transpose(),:
-#     print(f"rmse:{rmse(i,y_pre)}, r2:{r2_score(i,y_pre)}")
+# for i,j in rmse(y_test,y_pre),r2_score(y_test,y_pre):
+#     print(f"rmse:{i}, r2:{j}")

@@ -1,15 +1,10 @@
-#1.데이터 수집
 import numpy as np
 
-x=np.array([range(1,101),range(101,201)])
-# y=np.array([range(1,101),range(101,201)])
-y=np.array([range(1,101),range(101,201)])
-
-# print(x.shape)
-# print(y.shape)
+x=np.array([range(1,101),range(311,411),range(100)])
+y=np.array(range(711,811))
 
 x=np.transpose(x)
-y=np.transpose(y)
+# y=np.transpose(y)
 
 print(x.shape)
 print(y.shape)
@@ -25,10 +20,10 @@ x_train,x_test,y_train,y_test=tts(x,y,train_size=0.8)
 from keras.models import Model,Sequential
 from keras.layers import Input,Dense
 
-input1 = Input(shape=(2,))#input
+input1 = Input(shape=(3,))#input
 dense1= Dense(5, activation="relu")(input1)
 dense2= Dense(4)(dense1)
-output1= Dense(2)(dense2)#output
+output1= Dense(1)(dense2)#output
 
 model=Model(inputs=input1,outputs=output1)
 
@@ -41,9 +36,12 @@ model=Model(inputs=input1,outputs=output1)
 model.summary()
 
 #3. 훈련
-model.compile(loss="mse",optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,epochs=100,#validation_data=(x_valid,y_valid))
-          validation_split=0.25)
+from keras.callbacks import EarlyStopping
+
+earlystopping=EarlyStopping(monitor="loss",patience=5,mode="auto")
+
+model.compile(loss="mse", optimizer="adam", metrics=["accuracy"])
+model.fit(x_train,y_train,epochs=100,validation_split=0.25,callbacks=[earlystopping])
 
 #4. 평가 예측
 

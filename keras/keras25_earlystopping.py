@@ -47,18 +47,15 @@ model.summary()
 
 model.compile(loss="mse", optimizer="adam",metrics=["accuracy"])
 
-from keras.callbacks import TensorBoard,EarlyStopping
-
 early_stopping=EarlyStopping(monitor="loss", patience=20, mode="min")
 
-
+from keras.callbacks import TensorBoard
 
 tb_hist=TensorBoard(
-    
     log_dir='graph', histogram_freq=0, write_graph=True, write_images=True
 )
 
-model.fit(x_train,y_train,batch_size=1,epochs=1000,verbose=0,callbacks=[early_stopping])
+model.fit(x_train,y_train,batch_size=1,epochs=1000,verbose=0,callbacks=[tb_hist])
 
 #테스트
 

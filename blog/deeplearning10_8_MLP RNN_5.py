@@ -2,7 +2,7 @@
 
 #MLP(Multi Layer Perceptron)
 
-#5)DNN (다입력 다:1)-> DNN
+#8)RNN (다입력 다:다)-두번째
 
 #1.데이터 구성
 
@@ -12,32 +12,36 @@ dataset = np.array([range(1,11),range(11,21),range(21,31)])#3행 10열
 dataset=np.transpose(dataset)#(10,3)
 
 
-def split_5(dataset,time_steps,y_column):
+def split_8(dataset,time_steps,y_column):#(dataset,3,1)
     x_total=list()
     y_total=list()
-    for i in range(len(dataset)-time_steps-y_column+2):#10-3-1+2
-        x=dataset[i:i+time_steps,:-1]
-        y=dataset[i+time_steps-1:i+time_steps-1+y_column,-1]
+    for i in range(len(dataset)-time_steps-y_column+1):#10-3-1+1
+        x=dataset[i:i+time_steps]#3번째 행
+        y=dataset[i+time_steps:i+time_steps+y_column]#4번째 행 이후
         x_total.append(x)
         y_total.append(y)
     return np.array(x_total),np.array(y_total)
 
-x,y=split_5(dataset,3,2)
+x,y=split_8(dataset,3,1)
 
 print(f"x:{x}")
 print(f"y:{y}")
 
+print(f"x.shape:{x.shape}")#(7,3,3)
+print(f"y.shape:{y.shape}")#(7,1,3)
+
+# x=x.reshape(x.shape[0],x.shape[1]*x.shape[2])
+
+# print(f"x:{x}")
+# print(f"y:{y}")
+
+y=y.reshape(y.shape[0],y.shape[2])
+
+
 print(f"x.shape:{x.shape}")
 print(f"y.shape:{y.shape}")
 
-y=y.reshape(y.shape[0])
-x=x.reshape(x.shape[0],x.shape[1]*x.shape[2])
 
-print(f"x:{x}")
-print(f"y:{y}")
-
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
 
 
 #모델 구성
@@ -48,19 +52,19 @@ from keras.layers import Dense, LSTM
 
 model = Sequential()
 
-model.add(Dense(100,input_shape=(6,),activation="relu"))
-model.add(Dense(1))
+model.add(LSTM(100,input_shape=(3,3),activation="relu"))
+model.add(Dense(3))
 
 # model.summary()
 
 model.compile(loss="mse",optimizer="adam")
-model.fit(x,y,epochs=1,batch_size=1)
+model.fit(x,y,epochs=200,batch_size=1)
 
 mse=model.evaluate(x,y)
 print(f"mse:{mse}")
-x_pre=np.array([[9,10,11],[19,20,21]])
-print(x_pre.shape[0])
-x_pre=x_pre.reshape(1,x_pre.shape[0]*x_pre.shape[1])
+x_pre=np.array([[9,10,11],[19,20,21],[29,30,31]])#(3,3)
+x_pre=np.transpose(x_pre)#(3,3)
+x_pre=x_pre.reshape(1,x_pre.shape[0],x_pre.shape[1])#(1,3,3)
 print(f"x_pre.shape:{x_pre.shape}")
 
 y_pre=model.predict(x_pre)

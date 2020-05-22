@@ -2,7 +2,7 @@
 
 #MLP(Multi Layer Perceptron)
 
-#4)DNN (다입력 다:1)-> DNN
+#6)DNN (다입력 다:다)
 
 #1.데이터 구성
 
@@ -49,19 +49,19 @@ from keras.layers import Dense, LSTM
 
 model = Sequential()
 
-model.add(Dense(100,input_shape=(3,2),activation="relu"))
+model.add(LSTM(100,input_shape=(3,2),activation="relu"))
 model.add(Dense(2))
 
 # model.summary()
 
 model.compile(loss="mse",optimizer="adam")
-model.fit(x,y,epochs=1,batch_size=1)
+model.fit(x,y,epochs=300,batch_size=1)
 
 mse=model.evaluate(x,y)
 print(f"mse:{mse}")
-x_pre=np.array([[9,10,11],[19,20,21]])
-x_pre=np.transpose(x_pre)
-x_pre=x_pre.reshape(1,x_pre.shape[0],x_pre.shape[1])
+x_pre=np.array([[9,10,11],[19,20,21]])#(2,3)
+x_pre=np.transpose(x_pre)#(3,2)
+x_pre=x_pre.reshape(1,x_pre.shape[0],x_pre.shape[1])#(1,3,2)
 print(f"x_pre.shape:{x_pre.shape}")
 
 y_pre=model.predict(x_pre)

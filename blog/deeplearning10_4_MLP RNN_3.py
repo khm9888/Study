@@ -12,7 +12,6 @@ dataset = np.array([range(1,11),range(11,21),range(21,31)])#3행 10열
 dataset=np.transpose(dataset)
 
 
-# x는 4개씩 자르고, y는 1개씩 자름(샘플 참고)
 
 def split(dataset,time_steps,y_column):
     x_total=list()

@@ -97,5 +97,25 @@
 # s.add(1)
 # s.add(2)
 
-#p32
+# #p32
+
+# w="test"
+
+# print("te" or w)
+
+# # safe_x = x if x is not None else 0
+
+#p33
+
+even= [x for x in range(5) if x%2==0]
+print(even)
+
+even_dic= {x for x in range(5) if x%2==0}
+print(even_dic)
+
+pairs = [(x,y) for x in range(2,11) for y in range(1,10)]
+
+print(len(pairs))
+
+
 

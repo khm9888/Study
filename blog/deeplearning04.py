@@ -45,6 +45,10 @@ from sklearn.metrics import mean_squared_error as mse,r2_score
 def rmse(y_test,y_predict):
     return np.square(mse(y_test,y_predict))
 
+
+print(y_test)
+print(y_predict)
+
 print(f"RMSE : {rmse(y_test,y_predict)}")
 
 print(f"R2 : {r2_score(y_test,y_predict)}")

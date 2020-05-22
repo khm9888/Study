@@ -22,7 +22,7 @@ print(y_train.shape)
 
 #모델 구성
 
-from keras.models import Model
+from keras.models import Model,Merge
 from keras.layers import Input,Dense,LSTM
 
 from keras.callbacks import EarlyStopping,TensorBoard

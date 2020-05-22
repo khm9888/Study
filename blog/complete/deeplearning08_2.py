@@ -6,5 +6,5 @@ from keras.layers import Dense
 model=load_model("deeplearning.h5")
 
 # output=(Dense(1,name="dense_x"))(dense_5)
-output2=Dense(1)()
+
 model.summary()

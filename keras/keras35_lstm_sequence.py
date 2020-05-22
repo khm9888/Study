@@ -17,13 +17,11 @@ def split(dataset,time_steps):
 
 
 x=np.array(split(dataset,3)+split(dataset2,3))
-# x2=np.array(split(dataset,3))
-# x2=
-print(x)
+# print(x)
 
 y=np.array(list(range(4,14))+list(range(50,80,10)))
-# y=np.array(list(range(4,14))+list(range(50,80,10)))
 print(y)
+
 
 x=x.reshape(x.shape[0],x.shape[1],1)
 

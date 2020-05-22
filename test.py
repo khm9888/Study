@@ -1,8 +1,9 @@
-import numpy as np
-
-x_pre=np.array([[50,60,70]])
-
-x=np.array([range(1,8),range(1,8)])
-print(x)
-
-print(x.shape)
+def split_x(seq, size):
+    aaa = []
+    for i in range(len(a) - size + 1):
+        subset = a[i : (i + size)]
+        print(subset)
+        # aaa.append([item for item in subset])
+        aaa.append(subset)
+    print(type(aaa))
+    return np.array(aaa)

@@ -15,7 +15,7 @@ dataset = np.array(range(1,11))
 def split(dataset,y_column):
     x_total=list()
     y_total=list()
-    for i in range(len(dataset)-y_column):
+    for i in range(len(dataset)-y_column):#10-4
         x=dataset[i:i+y_column]
         y=dataset[i+y_column]
         x_total.append(x)

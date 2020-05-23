@@ -7,3 +7,4 @@ def split_x(seq, size):
         aaa.append(subset)
     print(type(aaa))
     return np.array(aaa)
+

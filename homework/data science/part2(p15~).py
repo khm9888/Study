@@ -204,21 +204,44 @@ Namespaces are one honking great idea -- let's do more of those!
 #     def reset(self):
 #         pass
 
-#p37
+# #p37
 
-def generate_range(n):
-    i=0
-    while i < n:
-        yield  i
-        i += 1
+# def generate_range(n):
+#     i=0
+#     while i < n:
+#         yield  i
+#         i += 1
 
-print(type(generate_range(10)))        
-for i in range(10):
-    print(f"i : {i}")
+# print(type(generate_range(10)))        
+# for i in range(10):
+#     print(f"i : {i}")
 
 
-print(generate_range(10))
-even = (i for i in generate_range(20) if i % 2 ==0)
+# print(generate_range(10))
+# even = (i for i in generate_range(20) if i % 2 ==0)
 
-print(even)
-print(type(even))
+# print(even)
+# print(type(even))
+
+# names=[]
+# names.append("Alice")
+# names.append("Bob")
+# names.append("Charlie")
+# names.append("Debbie")
+
+# for i,name in enumerate(names):
+#     print(f"name {i} is {name}")
+
+# #2.21 난수생성
+
+# import random
+
+# random.seed(10)
+
+# print(random.sample(range(10),6))
+
+# random.seed(10)
+
+# print(random.sample(range(10),6))
+
+#2.22 정규표현식

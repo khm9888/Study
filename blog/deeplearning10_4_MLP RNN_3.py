@@ -28,8 +28,11 @@ x,y=split(dataset,3,1)
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(8, 3, 2)
+
+print(f"y.shape:{y.shape}")#y.shape:(8, 1)
+
+y=y.reshape(y.shape[0])
 
 
 #모델 구성
@@ -46,7 +49,7 @@ model.add(Dense(1))
 model.summary()
 
 model.compile(loss="mse",optimizer="adam")
-model.fit(x,y,epochs=500,batch_size=1)
+model.fit(x,y,epochs=500,batch_size=1,verbose=0)
 
 mse=model.evaluate(x,y)
 print(f"mse:{mse}")

@@ -29,15 +29,15 @@ print(f"x:{x}")
 print(f"y:{y}")
 
 print(f"x.shape:{x.shape}")#(7,3,2)
-print(f"y.shape:{y.shape}")#(7,3)
+print(f"y.shape:{y.shape}")#(7,2)
 
 x=x.reshape(x.shape[0],x.shape[1]*x.shape[2])
 
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#(7,6)
+print(f"y.shape:{y.shape}")#(7,2)
 
 
 #모델 구성
@@ -54,7 +54,7 @@ model.add(Dense(2))
 # model.summary()
 
 model.compile(loss="mse",optimizer="adam")
-model.fit(x,y,epochs=300,batch_size=1)
+model.fit(x,y,epochs=300,batch_size=1,verbose=0)
 
 mse=model.evaluate(x,y)
 print(f"mse:{mse}")

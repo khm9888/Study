@@ -35,11 +35,11 @@ print(f"y.shape:{y.shape}")#(7,1,3)
 # print(f"x:{x}")
 # print(f"y:{y}")
 
-y=y.reshape(y.shape[0],y.shape[2])
+y=y.reshape(y.shape[0],y.shape[2])#7,3
 
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#(7,3,3)
+print(f"y.shape:{y.shape}")#7,3
 
 
 

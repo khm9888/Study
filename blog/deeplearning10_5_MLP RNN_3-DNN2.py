@@ -22,22 +22,22 @@ def split_5(dataset,time_steps,y_column):
         y_total.append(y)
     return np.array(x_total),np.array(y_total)
 
-x,y=split_5(dataset,3,2)
+x,y=split_5(dataset,3,1)
 
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(8, 6, 1)
+print(f"y.shape:{y.shape}")#y.shape:(8, 1)
 
-y=y.reshape(y.shape[0])
+# y=y.reshape(y.shape[0])
 x=x.reshape(x.shape[0],x.shape[1]*x.shape[2])
 
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(8, 6)
+print(f"y.shape:{y.shape}")#y.shape:(8, 1)
 
 
 #모델 구성

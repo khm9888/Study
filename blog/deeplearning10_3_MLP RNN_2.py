@@ -27,13 +27,13 @@ x,y=split(dataset,4,2)
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(5, 4)
+print(f"y.shape:{y.shape}")#y.shape:(5, 2)
 
 x=x.reshape(x.shape[0],x.shape[1],1)
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(5, 4, 1)
+print(f"y.shape:{y.shape}")#y.shape:(5, 2)
 
 #모델 구성
 

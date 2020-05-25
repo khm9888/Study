@@ -35,8 +35,8 @@ print(f"y.shape:{y.shape}")#(6,2,3)
 
 y=y.reshape(y.shape[0],y.shape[1]*y.shape[2])
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#(6,3,3)
+print(f"y.shape:{y.shape}")#(6,6)
 
 #모델 구성
 

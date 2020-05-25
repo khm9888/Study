@@ -28,8 +28,9 @@ print(f"x:{x}")
 print(f"y:{y}")
 
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#x.shape:(6, 4)
+
+print(f"y.shape:{y.shape}")#y.shape:(6,)
 
 #모델 구성
 

@@ -29,8 +29,9 @@ x,y=split_6(dataset,3,2)
 print(f"x:{x}")
 print(f"y:{y}")
 
-print(f"x.shape:{x.shape}")
-print(f"y.shape:{y.shape}")
+print(f"x.shape:{x.shape}")#(7,3,2)
+print(f"y.shape:{y.shape}")#(7,1,3)
+
 
 
 

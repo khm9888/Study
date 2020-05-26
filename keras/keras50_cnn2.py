@@ -14,3 +14,4 @@ model.add(MaxPooling2D(pool_size=2,strides=3))
 # model.add(MaxPooling2D(pool_size=2))
 model.add(Flatten())
 model.summary()
+

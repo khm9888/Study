@@ -129,7 +129,10 @@ Namespaces are one honking great idea -- let's do more of those!
 # print(word_counts2.items())
 
 # p29
+
+# 2.12.Counter
 # from collections import Counter
+# from collecitons import Counter
 
 # c = Counter([1,2,3,4,1])
 
@@ -147,6 +150,10 @@ Namespaces are one honking great idea -- let's do more of those!
 # s.add(1)
 # s.add(1)
 # s.add(2)
+
+# p30, 2.14 흐름제어
+# parity=[0,1]
+# parity = x if x%2 ==0 else "odd" 
 
 # #p32
 
@@ -212,6 +219,13 @@ Namespaces are one honking great idea -- let's do more of those!
 #         yield  i
 #         i += 1
 
+# def generate_range(n):
+#     i=0
+#     while i<n:
+#         yield i
+#         i+=1
+
+
 # print(type(generate_range(10)))        
 # for i in range(10):
 #     print(f"i : {i}")
@@ -245,3 +259,27 @@ Namespaces are one honking great idea -- let's do more of those!
 # print(random.sample(range(10),6))
 
 #2.22 정규표현식
+
+import re
+re_examples = [
+    not re.match("a","cat"),#"cat"은 "a"로 시작하지 않음
+    re.search("a","cat"),
+    3==len(re.split("[ab]","carbs"))#a 혹은 b로 분리하면 ['c','r','s']가 생성됨
+    ,
+    "R-D-"==re.sub("[0-9]","-","R2D2")
+    ]
+
+assert all(re_examples), "none"
+print(re_examples)
+
+list1=["a","b","c"]
+list2=[1,2,3]
+
+x=[i for i in zip(list1,list2)]
+
+print(x)
+
+x,y=zip(*x)
+
+print(f"x:{x}")
+print(f"y:{y}")

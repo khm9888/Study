@@ -50,7 +50,7 @@ from keras.layers import Dense, LSTM
 
 model = Sequential()
 
-model.add(LSTM(100,input_shape=(3,2),activation="relu"))
+model.add(LSTM(100,input_shape=(3,2),activation="sig"))
 model.add(Dense(2))
 
 # model.summary()

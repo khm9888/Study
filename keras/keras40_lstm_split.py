@@ -44,13 +44,13 @@ model.summary()
 #훈련
 from keras.callbacks import EarlyStopping
 early = EarlyStopping(monitor="mse",patience=10,mode="min")
-model.compile(loss="mse",optimizer="adam",metrics=["accuracy"])
-model.fit(x,y,batch_size=1,epochs=100,callbacks=[early])
+model.compile(loss="mse",optimizer="adam",metrics=["accuracy","mse"])
+model.fit(x,y,batch_size=1,epochs=1,callbacks=[early])
 
 #테스트
-loss,acc = model.evaluate(x,y,batch_size=1,)
+loss = model.evaluate(x,y,batch_size=1,)
 print(f"loss:{loss}")
-print(f"acc:{acc}")
+# print(f"acc:{acc}")
 
 y_pre=model.predict(x)
 

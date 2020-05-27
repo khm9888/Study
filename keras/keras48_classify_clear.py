@@ -39,9 +39,11 @@ mse,acc=model.evaluate(x,y,batch_size=1)
 y_pre=model.predict(x)
 y_pre=y_pre.reshape(10,)
 print(f"y_pre(before):{y_pre}")
-for i,j in enumerate(y_pre):
-    if j>0.5:
-        y_pre[i]=1
-    else:
-        y_pre[i]=0
+# for i,j in enumerate(y_pre):
+#     if j>0.5:
+#         y_pre[i]=1
+#     else:
+#         y_pre[i]=0
+
+y_pre=[int(round(i)) for i in y_pre]
 print(f"y_pre:{y_pre}")

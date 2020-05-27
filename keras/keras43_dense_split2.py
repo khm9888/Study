@@ -72,4 +72,4 @@ print(f"acc:{acc}")
 
 y_predict=model.predict(x_pre)
 
-print(f"y_pre:{y_predict}")
+print(f"y_pre:{y_predict}") 

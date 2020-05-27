@@ -16,6 +16,7 @@ y = np.array(l)
 
 from keras.utils import np_utils
 
+
 #option1
 y=np_utils.to_categorical(y)
 

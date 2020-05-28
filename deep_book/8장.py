@@ -222,7 +222,7 @@ print(items2)
 
 
 # In[57]:
-
+import pandas as pd
 
 data = {"fruits": ["apple", "orange", "banana", "strawberry",
 "kiwifruit"],
@@ -242,7 +242,7 @@ data1 = [10, 5, 8, 12, 3]
 data2 = [30, 25, 12, 10, 8]
 series1 = pd.Series(data1, index=index)
 series2 = pd.Series(data2, index=index)
-
+# series1 = pd.Series(data1, index=index)
 # series1, series2로 DataFrame을 생성하여 df에 대입하세요
 df = pd.DataFrame([series1, series2])
 
@@ -270,6 +270,7 @@ print(df)
 
 
 # In[3]:
+import pandas as pd
 
 
 data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
@@ -284,8 +285,9 @@ print(df)
 
 # In[15]:
 
-
 import pandas as pd
+
+
 
 index = ["apple", "orange", "banana", "strawberry", "kiwifruit"]
 data1 = [10, 5, 8, 12, 3]
@@ -350,11 +352,31 @@ data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
         "time": [1, 4, 5, 6, 3]}
 df = pd.DataFrame(data)
 
+df = pd.DataFrame(data)
+
 print(df)
 
 
 # In[67]:
+import pandas as pd
 
+data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
+        "year": [2001, 2002, 2001, 2008, 2006],
+        "time": [1, 4, 5, 6, 3]}
+df = pd.DataFrame(data)
+
+df = pd.DataFrame(data)
+
+print(df)
+
+
+# In[67]:
+import pandas as pd
+
+data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
+        "year": [2001, 2002, 2001, 2008, 2006],
+        "time": [1, 4, 5, 6, 3]}
+df = pd.DataFrame(data)
 
 df = df.loc[[1,2],["time","year"]]
 print(df)
@@ -400,7 +422,16 @@ print(df)
 
 # In[3]:
 
+import pandas as pd
 
+data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
+        "year": [2001, 2002, 2001, 2008, 2006],
+        "time": [1, 4, 5, 6, 3]}
+
+df = pd.DataFrame(data)
+
+
+print(df)
 df = df.iloc[[1, 3], [0, 2]]
 print(df)
 

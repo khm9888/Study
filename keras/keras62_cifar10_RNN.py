@@ -41,7 +41,7 @@ x_test=x_test.reshape(-1,32,96)
 #모델
 
 input1=Input(shape=(32,96))
-dense=LSTM(300,activation="relu")(input1)
+dense=LSTM(1000,activation="relu")(input1)
 dense=Dense(10,activation="softmax")(dense)
 
 
@@ -52,7 +52,7 @@ model.summary()
 #트레이닝
 
 model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=100,epochs=1,validation_split=0.3)
+model.fit(x_train,y_train,batch_size=256,epochs=50,validation_split=0.1)
 
 #테스트
 
@@ -70,3 +70,14 @@ print(f"acc:{acc}")
 
 print(f"y_test[0:20]:{y_test[0:20]}")
 print(f"y_pre[0:20]:{y_pre[0:20]}")
+
+
+#epoch=20, valid=0.3
+'''
+keras62_cifar10_RNN
+loss:1.2670373767614365
+acc:0.5722000002861023
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 8 0 0 6 6 1 6 2 9 0 9 6 7 9 4 3 6 1 6]
+'''
+

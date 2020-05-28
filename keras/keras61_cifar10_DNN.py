@@ -36,12 +36,9 @@ y_test = np_utils.to_categorical(y_test)
 #모델
 
 input1=Input(shape=(32*32*3,))
-dense=Dense(15,activation="relu")(input1)
-dense=Dense(100,activation="relu")(dense)
-dense=Dense(1000,activation="relu")(dense)
-dense=Dense(1000,activation="relu")(dense)
-dense=Dense(100,activation="relu")(dense)
-dense=Dense(15,activation="relu")(dense)
+dense=Dense(2000,activation="relu")(input1)
+dense=Dense(2000,activation="relu")(dense)
+
 dense=Dense(10,activation="softmax")(dense)
 
 
@@ -71,3 +68,37 @@ print(f"acc:{acc}")
 
 print(f"y_test[0:20]:{y_test[0:20]}")
 print(f"y_pre[0:20]:{y_pre[0:20]}")
+
+#epochs=20,layer=1,node=1000
+'''
+keras61_cifar10_DNN
+loss:1.4362430655956269
+acc:0.4984000027179718
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 8 8 7 4 6 3 4 3 1 8 9 5 2 1 8 3 9 8 6]
+'''
+#epochs=20,layer=1,node=2000
+'''
+keras61_cifar10_DNN
+loss:1.45334357380867
+acc:0.49470001459121704
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 1 0 0 4 6 1 4 5 1 8 9 5 7 1 8 5 3 8 6]
+'''
+
+#epochs=20,layer=1,node=2000
+'''
+keras61_cifar10_DNN
+loss:1.45334357380867
+acc:0.49470001459121704
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 1 0 0 4 6 1 4 5 1 8 9 5 7 1 8 5 3 8 6]
+'''
+#epochs=20,layer=2,node=2000+2000
+'''
+keras61_cifar10_DNN
+loss:1.5295091593265533
+acc:0.48750001192092896
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 8 8 8 4 6 1 6 2 1 0 9 3 7 1 8 7 4 8 6]
+'''

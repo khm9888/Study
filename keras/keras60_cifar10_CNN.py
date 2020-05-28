@@ -58,7 +58,7 @@ model.summary()
 #트레이닝
 
 model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=100,epochs=20,validation_split=0.1)
+model.fit(x_train,y_train,batch_size=100,epochs=30,validation_split=0.1)
 
 #테스트
 
@@ -78,3 +78,20 @@ print(f"acc:{acc}")
 
 print(f"y_test[0:20]:{y_test[0:20]}")
 print(f"y_pre[0:20]:{y_pre[0:20]}")
+
+#epochs=20
+'''
+keras60_cifar10_CNN
+loss:1.049088060259819
+acc:0.6744999885559082
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[5 1 0 0 6 6 1 6 3 1 0 9 5 7 9 8 5 5 8 6]
+'''
+#epochs=30
+'''
+loss:1.2873280984163284
+acc:0.6582000255584717
+y_test[0:20]:[3 8 8 0 6 6 1 6 3 1 0 9 5 7 9 8 5 7 8 6]
+y_pre[0:20]:[3 8 8 8 6 6 1 4 3 1 0 9 5 7 9 6 5 5 8 6]
+
+'''

@@ -15,12 +15,12 @@
 import numpy as np
 import pandas as pd
 
-df1 = pd.read_csv("C:\\Users\\bitcamp\Desktop\part10\kospi200.csv",index_col=0,header=0,encoding='cp949',sep=',')
+df1 = pd.read_csv(".\part10\kospi200.csv",index_col=0,header=0,encoding='cp949',sep=',')
 
 print(df1)
 print(df1.shape)
 
-df2 = pd.read_csv("c:\\Users\\bitcamp\Desktop\part10\samsung.csv",index_col=0,header=0,encoding="cp949",sep=',')
+df2 = pd.read_csv(".\part10\samsung.csv",index_col=0,header=0,encoding="cp949",sep=',')
 
 print(df2)
 print(df2.shape)
@@ -30,6 +30,8 @@ print(len(df1.index))
 #거래량 str->int
 for i in range(len(df1.index)):#총 주소 반환, len = 426
     df1.iloc[i,4]=int(df1.iloc[i,4].replace(',',''))
+    
+
     
 #모든 항목 str->int
 for i in range(len(df2.index)):
@@ -51,8 +53,8 @@ df2=df2.values
 print(type(df1),type(df2))
 print(df1.shape,df2.shape)
 
-np.save("c:\\Users\\bitcamp\Desktop\part10\kospi200.npy",arr=df1)
-np.save("c:\\Users\\bitcamp\Desktop\part10\samsung.npy",arr=df2)
+np.save(".\part10\kospi200.npy",arr=df1)
+np.save(".\part10\samsung.npy",arr=df2)
 
 # np.save("/kospi200/data/kospi200.npy",arr=df1)
 # np.save("/kospi200/data/samsung.npy",arr=df2)

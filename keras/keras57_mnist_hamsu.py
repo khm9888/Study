@@ -35,27 +35,24 @@ x_test= x_test /255
 
 
 #모델구성
-from keras.models import Sequential
-from keras.layers import Dense,Conv2D,MaxPool2D,Flatten,Dropout
-
-model= Sequential()
-
-# from keras.callbacks import EarlyStopping
+from keras.models import Sequential,Model
+from keras.layers import Dense,Conv2D,MaxPool2D,Flatten,Dropout,Input
 
 
 
-model.add(Conv2D(40,(2,2),input_shape=(28,28,1),activation="relu",padding="same"))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-# model.add(MaxPool2D(pool_size=(2,2)))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-# model.add(MaxPool2D(pool_size=(2,2)))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-model.add(MaxPool2D(pool_size=(2,2)))
+input1=Input(shape=(28,28,1))
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(input1)
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(conv)
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(conv)
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(conv)
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(conv)
+conv=Conv2D(40,(2,2),activation="relu",padding="same")(conv)
+max1=MaxPool2D(pool_size=(2,2))(conv)
+flat1=Flatten()(max1)
+dense=Dense(10,activation="softmax")(flat1)
 
-model.add(Flatten())
-model.add(Dense(10,activation="softmax"))
+model=Model(inputs=input1,outputs=dense)
+
 
 model.summary()
 

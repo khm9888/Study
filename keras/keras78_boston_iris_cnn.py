@@ -53,7 +53,7 @@ conv=Conv2D(30,(1,1),padding="same",activation="relu")(conv)
 conv=Conv2D(30,(1,1),padding="same",activation="relu")(conv)
 max1=MaxPool2D(pool_size=1)(conv)
 flat1=Flatten()(max1)
-dense=Dense(3,activation="softmax")(flat1)
+dense=Dense(3,activation="softmax")(flat1)#다중분류
 
 model = Model(inputs=input1,outputs=dense)
 
@@ -61,7 +61,7 @@ model.summary()
 
 #트레이닝
 
-model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["accuracy"])#다중분류
 model.fit(x_train,y_train,batch_size=30,epochs=20,validation_split=0.3)
 
 #테스트
@@ -72,7 +72,7 @@ y_pre=model.predict(x_test)
 
 y_test=np.argmax(y_test,axis=-1)
 y_pre=np.argmax(y_pre,axis=-1)
-print("keras76_boston_iris_dnn")
+print("keras78_boston_iris_cnn")
 print(f"loss:{loss}")
 print(f"acc:{acc}")
 # print(f"x_test.shape:{x_test.shape}")
@@ -85,9 +85,10 @@ print(f"y_pre[0:20]:{y_pre[0:20]}")
 
 
 '''
-keras76_boston_iris_dnn
-loss:0.5599777102470398
-acc:0.5333333611488342
-y_test[0:20]:[1 2 1 0 1 0 1 0 1 1 1 2 0 0 1]
-y_pre[0:20]:[2 2 2 0 2 0 2 0 1 2 2 2 0 0 2]
+keras78_boston_iris_cnn
+
+loss:0.5208752155303955
+acc:0.7333333492279053
+y_test[0:20]:[2 1 1 0 1 2 2 0 2 0 0 2 2 1 0]
+y_pre[0:20]:[2 2 2 0 2 2 2 0 2 0 0 2 2 2 0]
 '''

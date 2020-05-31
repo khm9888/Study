@@ -1,0 +1,7 @@
+Inventory:
+Apples: 30 pieces
+Mangoes: 25 pieces
+Oranges: ?
+Bananas: ?
+Carrots: 27 pieces
+Pears: ?

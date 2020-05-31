@@ -48,7 +48,7 @@ y_test = np_utils.to_categorical(y_test)
 
 input1=Input(shape=(4,1))
 dense=LSTM(3000,activation="relu")(input1)
-dense=Dense(3,activation="softmax")(dense)
+dense=Dense(3,activation="softmax")(dense)#다중분류
 
 model = Model(inputs=input1,outputs=dense)
 
@@ -67,7 +67,7 @@ y_pre=model.predict(x_test)
 
 y_test=np.argmax(y_test,axis=-1)
 y_pre=np.argmax(y_pre,axis=-1)
-print("keras76_boston_iris_dnn")
+print("keras76_boston_iris_rnn")
 print(f"loss:{loss}")
 print(f"acc:{acc}")
 # print(f"x_test.shape:{x_test.shape}")
@@ -79,8 +79,10 @@ print(f"y_pre[0:20]:{y_pre[0:20]}")
 #keras77_boston_iris_rnn
 
 '''
-loss:0.5736788511276245
-acc:0.6666666865348816
-y_test[0:20]:[0 1 1 0 1 2 0 2 1 1 2 2 0 0 1]
-y_pre[0:20]:[0 1 1 1 2 2 0 2 1 2 1 2 0 0 2]
+keras77_boston_iris_rnn
+
+loss:0.7190751433372498
+acc:0.7333333492279053
+y_test[0:20]:[2 0 2 1 2 1 0 2 1 1 0 1 0 2 1]
+y_pre[0:20]:[2 1 2 2 2 1 0 1 1 1 0 1 1 2 1]
 '''

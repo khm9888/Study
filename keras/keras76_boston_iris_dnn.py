@@ -7,6 +7,11 @@ from sklearn.datasets import load_iris
 
 #데이터구성
 dataset = load_iris()
+
+print(dataset.keys())
+
+[print (f"{i} : {dataset[i]} \n {'-'*50}") for i in list(dataset.keys())[2:-1]]
+
 x=dataset.data
 y=dataset.target
 
@@ -43,7 +48,7 @@ y_test = np_utils.to_categorical(y_test)
 
 input1=Input(shape=(4,))
 dense=Dense(3000,activation="relu")(input1)
-dense=Dense(3,activation="softmax")(dense)
+dense=Dense(3,activation="softmax")(dense)#다중분류
 
 model = Model(inputs=input1,outputs=dense)
 

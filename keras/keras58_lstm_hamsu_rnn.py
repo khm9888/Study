@@ -54,7 +54,18 @@ y_pre=model.predict(x_test)
 y_test=np.argmax(y_test,axis=-1)
 y_pre=np.argmax(y_pre,axis=-1)
 
+print(__file__)
+
 print(f"loss:{loss}")
 print(f"acc:{acc}")
 print(f"y_test[0:10]:{y_test[0:10]}")
 print(f"y_pre[0:10]:{y_pre[0:10]}")
+
+'''
+epoch:10
+d:\Study\keras\keras58_lstm_hamsu_rnn.py
+loss:0.06328021475696005
+acc:0.9837999939918518
+y_test[0:10]:[7 2 1 0 4 1 4 9 5 9]
+y_pre[0:10]:[7 2 1 0 4 1 4 9 5 9]
+''

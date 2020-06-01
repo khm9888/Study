@@ -70,12 +70,13 @@ def rmse(y_test,y_pre):
     return np.sqrt(mse(y_test,y_pre))
 
 
-print(f"loss:{loss}")
+
 
 import numpy as np
 
 y_pre=y_pre.reshape(y_pre.shape[0])
-
+print(__file__)
+print(f"loss:{loss}")
 print(f"rmse:{rmse(y_test,y_pre)}")
 print(f"r2:{r2_score(y_test,y_pre)}")
 print("-"*40)

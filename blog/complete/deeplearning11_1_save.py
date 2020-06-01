@@ -13,12 +13,12 @@
 import numpy as np
 import pandas as pd
 
-df1 = pd.read_csv("C:\\Users\\bitcamp\Desktop\part10\kospi200.csv",index_col=0,header=0,encoding='cp949',sep=',')
+df1 = pd.read_csv(".\part10\kospi200.csv",index_col=0,header=0,encoding='cp949',sep=',')
 
 print(df1)
 print(df1.shape)
 
-df2 = pd.read_csv("c:\\Users\\bitcamp\Desktop\part10\samsung.csv",index_col=0,header=0,encoding="cp949",sep=',')
+df2 = pd.read_csv(".\part10\samsung.csv",index_col=0,header=0,encoding="cp949",sep=',')
 
 print(df2)
 print(df2.shape)
@@ -50,8 +50,11 @@ df2=df2.values
 print(type(df1),type(df2))
 print(df1.shape,df2.shape)
 
-np.save("c:\\Users\\bitcamp\Desktop\part10\kospi200.npy",arr=df1)
-np.save("c:\\Users\\bitcamp\Desktop\part10\samsung.npy",arr=df2)
+np.save(".\part10\kospi200.npy",arr=df1)
+np.save(".\part10\samsung.npy",arr=df2)
+
+kospi200=np.load(".\part10\kospi200.npy",allow_pickle=True)
+samsung=np.load(".\part10\samsung.npy",allow_pickle=True)
 
 # np.save("/kospi200/data/kospi200.npy",arr=df1)
 # np.save("/kospi200/data/samsung.npy",arr=df2)

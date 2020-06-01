@@ -65,6 +65,7 @@ from sklearn.metrics import mean_squared_error as mse , r2_score
 def rmse(y_test,y_pre):
     return np.sqrt(mse(y_test,y_pre))
 
+print(__file__)
 
 print(f"loss:{ev[0]}")
 print(f"acc:{ev[2]}")

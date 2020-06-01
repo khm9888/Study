@@ -1,0 +1,157 @@
+model/model.h5
+model/test_weight.h5
+model/1/- 1-0.0960.hdf5
+model/1/1.py
+model/1/model.h5
+model/1/weights.h5
+model/2/- 1-1.7604.hdf5
+model/2/- 2-1.6664.hdf5
+model/2/2.py
+model/2/model.h5
+model/2/weights.h5
+model/3/- 1-0.3905.hdf5
+model/3/- 2-0.3891.hdf5
+model/3/- 3-0.3746.hdf5
+model/3/- 4-0.3263.hdf5
+model/3/- 7-0.3140.hdf5
+model/3/-11-0.3097.hdf5
+model/3/-12-0.2995.hdf5
+model/3/3.py
+model/3/model.h5
+model/3/weights.h5
+model/4/- 2-3.6441.hdf5
+model/4/- 2-15.1682.hdf5
+model/4/- 3-3.5931.hdf5
+model/4/- 4-3.5285.hdf5
+model/4/- 5-3.4891.hdf5
+model/4/- 6-3.4626.hdf5
+model/4/- 7-3.4442.hdf5
+model/4/- 8-3.4246.hdf5
+model/4/-10-3.3865.hdf5
+model/4/4.py
+model/4/model.h5
+model/4/weights.h5
+model/5/- 1-34.9809.hdf5
+model/5/- 2-30.8134.hdf5
+model/5/- 3-24.0014.hdf5
+model/5/- 9-23.7062.hdf5
+model/5/-10-21.1068.hdf5
+model/5/5.py
+model/5/model.h5
+model/5/weights.h5
+model/6/- 1-0.9872.hdf5
+model/6/- 1-1.0093.hdf5
+model/6/- 1-4050.6136.hdf5
+model/6/- 2-0.8979.hdf5
+model/6/- 2-0.9687.hdf5
+model/6/- 2-3795.5513.hdf5
+model/6/- 3-0.8372.hdf5
+model/6/- 3-0.9176.hdf5
+model/6/- 4-0.7724.hdf5
+model/6/- 4-0.8184.hdf5
+model/6/- 4-3779.1770.hdf5
+model/6/- 5-0.7101.hdf5
+model/6/- 5-0.7116.hdf5
+model/6/- 6-0.5979.hdf5
+model/6/- 6-0.6576.hdf5
+model/6/- 7-0.5216.hdf5
+model/6/- 7-0.6116.hdf5
+model/6/- 8-0.4971.hdf5
+model/6/- 8-0.5727.hdf5
+model/6/- 9-0.5484.hdf5
+model/6/-10-0.5359.hdf5
+model/6/-11-0.5161.hdf5
+model/6/-12-0.4415.hdf5
+model/6/-12-0.4745.hdf5
+model/6/-13-0.4188.hdf5
+model/6/-13-0.4579.hdf5
+model/6/-15-0.4488.hdf5
+model/6/-16-0.3791.hdf5
+model/6/-16-0.4201.hdf5
+model/6/-17-0.3459.hdf5
+model/6/-19-0.3952.hdf5
+model/6/-20-0.3796.hdf5
+model/6/-21-0.3030.hdf5
+model/6/-21-0.3681.hdf5
+model/6/-22-0.2927.hdf5
+model/6/-22-0.3563.hdf5
+model/6/-23-0.3416.hdf5
+model/6/-24-0.2608.hdf5
+model/6/-24-0.3267.hdf5
+model/6/-25-0.3156.hdf5
+model/6/-26-0.3016.hdf5
+model/6/-27-0.2405.hdf5
+model/6/-27-0.2895.hdf5
+model/6/-30-0.2092.hdf5
+model/6/-30-0.2793.hdf5
+model/6/-31-0.1875.hdf5
+model/6/-31-0.2522.hdf5
+model/6/-32-0.2359.hdf5
+model/6/-33-0.2271.hdf5
+model/6/-34-0.2166.hdf5
+model/6/-35-0.1713.hdf5
+model/6/-35-0.2070.hdf5
+model/6/-36-0.1617.hdf5
+model/6/-36-0.2024.hdf5
+model/6/-37-0.1947.hdf5
+model/6/-38-0.1582.hdf5
+model/6/-39-0.1773.hdf5
+model/6/-40-0.1438.hdf5
+model/6/-40-0.1716.hdf5
+model/6/-41-0.1388.hdf5
+model/6/-41-0.1635.hdf5
+model/6/-42-0.1338.hdf5
+model/6/-44-0.1485.hdf5
+model/6/-45-0.1472.hdf5
+model/6/-46-0.1249.hdf5
+model/6/-47-0.1245.hdf5
+model/6/-47-0.1361.hdf5
+model/6/-50-0.1223.hdf5
+model/6/6.py
+model/6/model.h5
+model/6/weights.h5
+model/7/- 1-4086.0135.hdf5
+model/7/- 1-5388.2223.hdf5
+model/7/- 2-3522.2619.hdf5
+model/7/- 2-4525.4070.hdf5
+model/7/- 3-3255.5759.hdf5
+model/7/- 3-4164.5634.hdf5
+model/7/- 4-3204.2179.hdf5
+model/7/- 7-4154.7939.hdf5
+model/7/-10-4127.5007.hdf5
+model/7/-13-3184.9897.hdf5
+model/7/-14-3182.1970.hdf5
+model/7/-15-4111.7536.hdf5
+model/7/-18-3174.7520.hdf5
+model/7/-20-4074.4944.hdf5
+model/7/7.py
+model/7/model.h5
+model/7/weights.h5
+model/8/- 1-0.0415.hdf5
+model/8/- 1-0.0502.hdf5
+model/8/- 1-0.1185.hdf5
+model/8/- 1-0.1360.hdf5
+model/8/- 2-0.0305.hdf5
+model/8/- 4-0.1062.hdf5
+model/8/- 5-0.0954.hdf5
+model/8/- 6-0.0211.hdf5
+model/8/8.py
+model/8/model.h5
+model/8/weights.h5
+keras/graph/train/events.out.tfevents.1590981740.DESKTOP-TVVLMLO.14224.2963.v2
+keras/graph/train/events.out.tfevents.1590981741.DESKTOP-TVVLMLO.profile-empty
+keras/graph/train/plugins/profile/2020-06-01_12-22-21/local.trace
+keras/graph/validation/events.out.tfevents.1590981741.DESKTOP-TVVLMLO.14224.3011.v2
+model/check-0001-0.0602.hdf5
+model/check-0001-0.0713.hdf5
+model/check-0002-0.0603.hdf5
+model/check-0003-0.0495.hdf5
+model/check-0004-0.0592.hdf5
+model/keras83_mnist_dnn.py
+model/keras84_cifar10_DNN.py
+model/keras85_fashion_dnn.py
+model/keras86.cifar100_dnn.py
+model/keras87_boston_dnn.py
+model/keras88_boston_iris_dnn.py
+model/keras89_boston_diabets_dnn.py
+model/keras90_boston_breast_cancer_dnn.py

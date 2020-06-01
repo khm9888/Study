@@ -72,7 +72,7 @@ y_pre=model.predict(x_test)
 
 y_test=np.argmax(y_test,axis=-1)
 y_pre=np.argmax(y_pre,axis=-1)
-print("keras64_fashion_cnn")
+print(__file__)
 print(f"loss:{loss}")
 print(f"acc:{acc}")
 # print(f"x_test.shape:{x_test.shape}")

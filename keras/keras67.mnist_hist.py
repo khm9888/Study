@@ -68,6 +68,8 @@ y_pre=model.predict(x_test)
 y_test=np.argmax(y_test[0:10],axis=1)
 y_pre=np.argmax(y_pre[0:10],axis=1)
 
+print(__file__)
+
 print(f"loss:{loss}")
 print(f"acc:{acc}")
 

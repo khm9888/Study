@@ -91,6 +91,9 @@ for column in range(3,9):
   x=dataset.data
   y=dataset.target
 
+  print(x)
+  print(y)
+
   df = pd.DataFrame(x, columns=dataset.feature_names)
 
   # print(df.head())
@@ -171,7 +174,7 @@ for column in range(3,9):
   y_pre=model.predict(x_test)
   y_pre=y_pre.reshape(y_pre.shape[0])#print할 때 편히 보기 위해서 백터로 변환
 
-  print("keras79_boston_diabets_dnn")
+  print(__file__)
   print(f"n_component:{column}")
   print(f"epoch:{epoch}")
   print("="*50)

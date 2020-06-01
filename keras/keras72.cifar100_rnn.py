@@ -67,6 +67,7 @@ y_pre= model.predict(x_test)
 
 y_test=np.argmax(y_test, axis=-1)#인코딩 한 것에 대해 디코딩
 y_pre=np.argmax(y_pre, axis=-1)
+print(__file__)
 
 print(f"loss:{loss}")
 print(f"acc:{acc}")

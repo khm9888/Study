@@ -166,6 +166,8 @@ for column in range(6,8):
   def rmse(y_test,y_pre):
       return np.sqrt(mse(y_test,y_pre))
 
+  print(__file__)
+
   print("-"*40)
 
   loss = model.evaluate(x_test,y_test,batch_size=1)
@@ -173,7 +175,8 @@ for column in range(6,8):
   y_pre=model.predict(x_test)
   y_pre=y_pre.reshape(y_pre.shape[0])#print할 때 편히 보기 위해서 백터로 변환
 
-  print("keras80_boston_diabets_rnn")
+  print(__file__)
+
   print(f"n_component:{column}")
   print(f"epoch:{epoch}")
   print("="*50)

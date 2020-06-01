@@ -100,7 +100,7 @@ for column in range(5,6):
     print("-"*40)
     # y_pre=y_pre.reshape(y_pre.shape[0])#print할 때 편히 보기 위해서 백터로 변환
 
-    print("keras83_boston_breast_cancer_rnn")
+    print(f"\n{__file__}")
     print(f"n_component:{column}")
     print(f"epoch:{epoch}")
     print("="*50)

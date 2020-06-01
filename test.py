@@ -1,6 +1,8 @@
-import numpy as np
-import pandas as pd
+from sklearn.datasets import load_iris
 
-df1 =pd.read_csv(".\part10\kospi200.csv",index_col=0,header=0,encoding='cp949')
+datasets = load_iris()
 
-df2=pd.read_csv(".\part10\samsung.csv",index_col=0,header=0,encoding='cp949')
+# print(datasets)
+
+
+print(datasets.feature_names)

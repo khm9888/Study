@@ -110,7 +110,7 @@ for column in range(4,8):
     y_pre=model.predict(x_test)
     y_pre=y_pre.reshape(y_pre.shape[0])#print할 때 편히 보기 위해서 백터로 변환
 
-    print("keras81_boston_diabets_cnn")
+    print(__file__)
     print(f"n_component:{column}")
     print(f"epoch:{epoch}")
     print("="*50)

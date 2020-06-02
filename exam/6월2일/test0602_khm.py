@@ -7,7 +7,7 @@ from keras.layers import Dense, Input, Concatenate
 from sklearn.metrics import r2_score,mean_squared_error as mse
 from keras.callbacks import EarlyStopping
 
-for epochs in range(10,121,5):
+for epochs in range(50 ,151,10):
     hite_df=pd.read_csv("./하이트 주가.csv",index_col=0,header=0,encoding="cp949",sep=",")
     samsung_df=pd.read_csv("./삼성전자 주가.csv",index_col=0,header=0,encoding="cp949",sep=",")
 
@@ -67,8 +67,8 @@ for epochs in range(10,121,5):
         x_values=list()
         y_values=list()
         for i in range(len(datasets)-timesteps-1):#10-5-1
-            x=datasets[i:i+timesteps]#0,1,2,3,4
-            x=np.append(x,datasets[i+timesteps,0])#(509,26)
+            x=datasets[i:i+timesteps]
+            x=np.append(x,datasets[i+timesteps,0])
             y=datasets[i+timesteps+1]
             x_values.append(x)
             y_values.append(y)
@@ -136,8 +136,8 @@ for epochs in range(10,121,5):
     # output1 = Dense(10,activation="relu")(merge)
     # output1 = Dense(1,activation="relu")(output1)
 
-    output2 = Dense(2000,activation="relu")(merge)
-    output2 = Dense(1,activation="relu")(output2)
+    # output2 = Dense(2000,activation="relu")(merge)
+    output2 = Dense(1,activation="relu")(merge)
 
     model = Model(inputs= [input1,input2], outputs = output2)
 
@@ -150,7 +150,7 @@ for epochs in range(10,121,5):
     # early= EarlyStopping(monitor="val_loss",patience=max(epochs//20,5))
     model.compile(loss = "mse",optimizer="adam")
     #하이트, 삼성 순서로 데이터 넣음
-    model.fit([x_h_train,x_train],y_train,batch_size=1,epochs=epochs,validation_split=0.2,verbose=0)#,callbacks=[early])
+    model.fit([x_h_train,x_train],y_train,batch_size=1,epochs=epochs,validation_split=0.2,verbose=1)#,callbacks=[early])
 
     model.save(F"./{__file__[-15:-3]}-{epochs}.h5")
     # # 4)테스트
@@ -202,6 +202,7 @@ for epochs in range(10,121,5):
         print("-"*20,"end","-"*20)
         print()
         print()
+
 
 # -------------------- start --------------------
 # c:\Users\bitcamp\Desktop\test0602_khm.py

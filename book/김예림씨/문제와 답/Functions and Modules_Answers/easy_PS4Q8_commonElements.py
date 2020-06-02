@@ -27,8 +27,17 @@
 
 
 
+def func(list1,list2):
+    values=list()
+    for i in list1:
+        if i in list2:
+            values.append(i)
+    print(values)
+    
+input1=[1,3,6,78,35,55,57]
+input2=[12,24,35,24,78,120,155,3]
 
-
+func(input1,input2)
 
 
 

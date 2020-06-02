@@ -31,8 +31,20 @@
 #call function ....pass the two values in the list (split from user input)
 #print the value returned
 
+x,y=map(int,input().split(","))
 
+def func(x,y):
+    num=0
+    result=list()
+    for i in range(x):#0,1,2
+        empty=list()
+        for j in range(y):#0,1,2,3,4
+            empty.append(i*j)#0,0,0,0,0
+        result.append(empty)
+    return result
+    print(num)
 
+print(func(x,y))
 
 
 
@@ -46,18 +58,18 @@
 
 
 #code
-rowsAndColumns = input("Type rows and columns needed in i,j format").split(",")
+# rowsAndColumns = input("Type rows and columns needed in i,j format").split(",")
 
-def generateArray(i,j):
-    #i--rows
-    #j--columns
-    matrixList = []
-    for everyi in range(i):
-        rowList = []
-        for everyj in range(j):
-            rowList.append(everyi*everyj)
-        matrixList.append(rowList)
-    return matrixList
+# def generateArray(i,j):
+#     #i--rows
+#     #j--columns
+#     matrixList = []
+#     for everyi in range(i):
+#         rowList = []
+#         for everyj in range(j):
+#             rowList.append(everyi*everyj)
+#         matrixList.append(rowList)
+#     return matrixList
 
-print(generateArray(int(rowsAndColumns[0]),int(rowsAndColumns[1])))
+# print(generateArray(int(rowsAndColumns[0]),int(rowsAndColumns[1])))
             

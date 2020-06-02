@@ -91,8 +91,8 @@ for column in range(3,9):
   x=dataset.data
   y=dataset.target
 
-  print(x)
-  print(y)
+  # print(x)
+  # print(y)
 
   df = pd.DataFrame(x, columns=dataset.feature_names)
 

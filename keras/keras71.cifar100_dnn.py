@@ -24,7 +24,7 @@ x_test=x_test.reshape(-1,x_test.shape[1]*x_test.shape[2]*x_test.shape[3])
 scaler = MinMaxScaler()
 
 x_train=scaler.fit_transform(x_train)
-x_test=scaler.fit_transform(x_test)
+x_test=scaler.transform(x_test)
 
 
 # 필요치 않음, dnn은 2차원

@@ -12,8 +12,11 @@ from keras.datasets import mnist
 train = pd.read_csv("./input/train.csv")
 test = pd.read_csv("./input/test.csv")
 
+print(train.shape)
+# print(test.head())
+
 y_train=train["label"]
-x_train=train.drop(labels = ["label"],axis = 1)
+x_train=train.drop(labels = ["label"],axis = 1)#열?
 
 del train
 
@@ -21,6 +24,7 @@ del train
 # print(f"x.shape:{x_train.shape}")
 
 # print(f"type(x_train):{type(x_train)}")
+
 
 
 x_train= x_train /255
@@ -68,8 +72,8 @@ model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
 model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
 model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
 # model.add(MaxPool2D(pool_size=(2,2)))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
-model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
+# model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
+# model.add(Conv2D(40,(2,2),activation="relu",padding="same"))
 model.add(MaxPool2D(pool_size=(2,2)))
 
 model.add(Flatten())
@@ -81,12 +85,12 @@ model.summary()
 
 
 print("-"*20+str("start")+"-"*20)
-model.compile(loss="binary_crossentropy", optimizer="rmsprop",metrics=["acc"])
-model.fit(x_train,y_train,epochs=10,batch_size=100,validation_split=0.1)
+model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["acc"])
+model.fit(x_train,y_train,epochs=30,batch_size=100,validation_split=0.3)
 
 #테스트
 
-# loss,acc = model.evaluate(x_test,y_test,batch_size=100)
+loss,acc = model.evaluate(x_test,y_test,batch_size=100)
 y_pre=model.predict(test)
 
 # y_test=np.argmax(y_test[0:10],axis=1)
@@ -102,10 +106,10 @@ y_pre = pd.Series(y_pre, name = 'Label')
 submit = pd.concat([pd.Series(range(1, 28001), name = 'ImageId'), y_pre], axis = 1)
 submit.to_csv("mySubmission_mnist_cnn.csv", index = False)
 
-# print(f"loss:{loss}")
-# print(f"acc:{acc}")
-# y_test=np.argmax(y_test, axis=1)
-# y_pre=y_pre.values
+print(f"loss:{loss}")
+print(f"acc:{acc}")
+y_test=np.argmax(y_test, axis=1)
+y_pre=y_pre.values
 
-# print(f"y_test[0:10]:{y_test[0:10]}")
+print(f"y_test[0:10]:{y_test[0:10]}")
 print(f"y_pre[0:10]:{y_pre[0:10]}")

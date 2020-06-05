@@ -9,7 +9,7 @@ y_data = [0,1,1,0]
 #2.모델
 
 # model =SVC()
-model =KNeighborsClassifier(n_neighbors=1)
+model =KNeighborsClassifier(n_neighbors=1)#통상적으로 4이상 별로 안 씀. 3이하로 사용
 
 #3.훈련
 

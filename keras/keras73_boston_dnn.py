@@ -5,6 +5,8 @@ dataset = load_boston()
 x=dataset.data
 y=dataset.target
 
+print(dataset)
+
 #dimention 확인
 print(f"x.shape:{x.shape}")
 print(f"y.shape:{y.shape}")

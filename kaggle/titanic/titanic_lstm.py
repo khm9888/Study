@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from keras.models import Model
-from keras.layers import Dense, Input
+from keras.layers import Dense, Input, LSTM
 from sklearn.preprocessing import StandardScaler
 from keras.utils import np_utils
 
@@ -141,12 +141,12 @@ test['Sex'] = tmp
 
 train.info() #확인
 
-# x_train = train.values[:,[1,3,4,8]]#테스트 해보기
-x_train = train.values[:,[1,3,4,5,6,8]]
+x_train = train.values[:,[1,3,4,8]]#테스트 해보기
+# x_train = train.values[:,[1,3,4]]
 y_train = train.values[:,[0]]
-# test.info() #확인
+test.info() #확인
 
-x_test = test.values[:,[0,2,3]]
+x_test = test.values[:,[0,2,3,7]]
 # y_test = test.values[:,[10]]
 y_test = test.values[:,[10]]
 
@@ -172,11 +172,15 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 
+x_train = x_train.reshape(-1,4,1)
+x_test = x_test.reshape(-1,4,1)
+
+
 
 #2) 모델
 
-input1 = Input(shape=(3,))
-dense1 = Dense(1000,activation="relu")(input1)
+input1 = Input(shape=(4,1))
+dense1 = LSTM(1000,activation="relu")(input1)
 # dense1 = Dense(1000,activation="relu")(dense1)
 dense1 = Dense(2,activation="sigmoid")(dense1)
 
@@ -185,7 +189,7 @@ model = Model(inputs = input1,outputs = dense1)
 #3) 트레이닝
 
 model.compile(loss="binary_crossentropy",optimizer="adam",metrics=["acc"])
-model.fit(x_train,y_train,batch_size=10,epochs=30,validation_split=0.2,verbose=0)
+model.fit(x_train,y_train,batch_size=10,epochs=30,validation_split=0.2,verbose=1)
 
 # 4) 평가 및 예측
 

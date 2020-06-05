@@ -26,7 +26,7 @@ paraemeters = [
 
 kfold = KFold(n_splits=5,shuffle=True)
 
-model = GridSearchCV(SVC(),paraemeters,cv=kfold)
+model = GridSearchCV(SVC(),paraemeters,cv=kfold,n_jobs=-1)
 
 
 model.fit(x_train,y_train)

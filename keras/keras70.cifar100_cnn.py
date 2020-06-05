@@ -7,6 +7,8 @@ from keras.utils import np_utils
 from keras.callbacks import EarlyStopping,ModelCheckpoint
 import numpy as np
 
+
+print(cifar100.load_data().shape)
 (x_train,y_train),(x_test,y_test)=cifar100.load_data()
 
 #1) 데이터 구성

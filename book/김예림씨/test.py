@@ -1,4 +1,4 @@
-#1
+#1 - 파일입출력 부분 해야함
 '''
 Download this file: https://drive.google.com/file/d/19GgfoLcQXbMBMZ45SBeUBSvOvOHJXUz0/view?usp=sharing
 Find and print the number of times the phrase “abcd” appears in this file.
@@ -14,7 +14,7 @@ Output: The number of times abcd appears in this file is: (your answer here)
 # print("The number of times abcd appears in this file is:"+str(cnt))
 
 
-#2번
+#2번 - 해야함
 '''
 Download this file: https://drive.google.com/file/d/1aQVOyon9JJ7GZved8ZLfP-l9w7tapLmv/view?usp=sharing
 Replace the marks Florentina got with 78.
@@ -23,7 +23,9 @@ You should make the replacement in the same file.
 #파일 입력 및 수정
 
 
-#3번
+
+
+#3번-clear
 '''
 Medium 3
 Write a program that takes an integer number from the user and prints the following sequence (with the lines being equal to the number given).
@@ -47,7 +49,7 @@ Output:
 # for i in range(1,x+1):
 #     print("*"*i)
 
-
+#4번  - 해야함
 ''' 
 Medium 4
 Write a program that takes two lists of integer numbers and checks if they can be combined to form a ‘consecutive’ list.
@@ -77,6 +79,44 @@ Output: False
 # print(x)
 # print(y)
 
+#5번 - 해야함
+'''
+Medium 5
+Write a program that has two functions: theLetters() and theNumbers().
+The first function should print all the alphabets with both lowercase and uppercase letters on each line.
+The second function should output all the numbers from 0 to 9 together with their names on each line.
+The user chooses which function runs by introducing one of these strings: “numbers” or “letters”.
+Functions Structure:
+none theLetters():
+none theNumbers():
+Example1:
+Input: What would you like to learn? numbers
+Output:
+0 zero
+1 one
+2 two
+3 three
+4 four
+5 five
+6 six
+7 seven
+8 eight
+9 nine
+Example1:
+Input: What would you like to learn? letters
+Output:
+a A
+b B
+c C
+.
+.
+.
+y Y
+z Z
+
+'''
+
+#6번 - clear
 '''
 Hard 1
 Write a program that takes a positive integer from the user and calculates how many dots exist in a pentagonal shape around the center dot on the Nth

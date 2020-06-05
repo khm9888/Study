@@ -22,10 +22,10 @@ import matplotlib.pyplot as plt
 
 wine_df = pd.read_csv("./data/winequality-white.csv",header=0,encoding="cp949",sep=";")
 
-count_data = wine_df.groupby("quality")["quality"].count()
+count_data = wine_df.groupby(["quality"])
 
 
 print(count_data)
 
-plt.plot(count_data)
-plt.show()
+# plt.plot(count_data)
+# plt.show()

@@ -2,6 +2,7 @@ from sklearn.datasets import load_boston
 
 #데이터 구성
 dataset = load_boston()
+
 x=dataset.data
 y=dataset.target
 

@@ -4,8 +4,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.utils.testing import all_estimators
 import warnings
 
-
-
+pri
 warnings.filterwarnings('ignore')
 
 

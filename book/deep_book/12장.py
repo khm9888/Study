@@ -62,7 +62,7 @@ plt.show()
 
 import numpy as np
 import matplotlib.pyplot as plt
-# get_ipython().run_line_magic('matplotlib', 'inline')
+get_ipython().run_line_magic('matplotlib', 'inline')
 
 x = [1, 2, 3, 4, 5, 6]
 y = [12, 41, 32, 36, 21, 17]
@@ -120,7 +120,7 @@ np.random.seed(0)
 data = np.random.randn(10000)
 
 # 구간 수 100을 적용한 히스토그램을 작성하세요
-plt.hist(data, bins = 100)
+plt.hist(data, bins = 20)
 plt.show()
 
 
@@ -296,7 +296,7 @@ import matplotlib.pyplot as plt
 
 # 3D 렌더링에 필요한 라이브러리입니다
 from mpl_toolkits.mplot3d import Axes3D
-# get_ipython().run_line_magic('matplotlib', 'inline')
+get_ipython().run_line_magic('matplotlib', 'inline')
 
 t = np.linspace(-2*np.pi, 2*np.pi)
 X, Y = np.meshgrid(t, t)

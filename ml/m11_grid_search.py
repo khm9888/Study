@@ -26,6 +26,8 @@ paraemeters = [
 
 kfold = KFold(n_splits=5,shuffle=True)
 
+
+
 model = GridSearchCV(SVC(),paraemeters,cv=kfold,n_jobs=-1)
 
 

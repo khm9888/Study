@@ -146,7 +146,7 @@ data = [10, 5, 8, 12, 3]
 series = pd.Series(data, index=index)
 
 # 인덱스가 "pineapple" 이고, 데이터가 12인 요소를 series에 추가하세요 
-pineapple = pd.Series([12], index=["pineapple"])
+pineapple = pd.Series([12], index="pineapple")
 # pineapple = pd.Series(12, index="pineapple")
 series = series.append(pineapple)
 # series = series.append(pd.Series({"pineapple":12}))라도 OK 
@@ -232,6 +232,20 @@ df = pd.DataFrame(data)
 print(df)
 
 
+# fruits  year  time
+# 0       apple  2001     1
+# 1      orange  2002     4
+# 2      banana  2001     5
+# 3  strawberry  2008     6
+# 4   kiwifruit  2006     3
+
+print(f"df.keys():{df.keys()}")
+print(f"df.columns:{df.columns}")
+#df.keys():Index(['fruits', 'year', 'time'], dtype='object')
+#df.column:Index(['fruits', 'year', 'time'], dtype='object')
+
+print(list(df.index))
+
 # In[12]:
 
 
@@ -244,7 +258,9 @@ series1 = pd.Series(data1, index=index)
 series2 = pd.Series(data2, index=index)
 # series1 = pd.Series(data1, index=index)
 # series1, series2로 DataFrame을 생성하여 df에 대입하세요
+
 df = pd.DataFrame([series1, series2])
+#[0, 1, 2, 3, 4]
 
 # 출력합니다
 print(df)
@@ -263,12 +279,14 @@ series2 = pd.Series(data2, index=index)
 df = pd.DataFrame([series1, series2])
 
 # df의 인덱스가 1부터 시작하도록 설정하세요
-df.index = [1, 2]
+# df.index = [1, 2]
 
 # 출력합니다
 print(df)
 
-
+# apple  orange  banana  strawberry  kiwifruit
+# 0     10       5       8          12          3
+# 1     30      25      12          10          8
 # In[3]:
 import pandas as pd
 
@@ -279,10 +297,18 @@ data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
 df = pd.DataFrame(data)
 series = pd.Series(["mango", 2008, 7], index=["fruits", "year", "time"])
 
-df = df.append(series, ignore_index=True)
-print(df)
+item = df.append(series)
+#ignore_index 매개변수를 True로 설정해야지 index를 무시하고 새로 추가가 가능합니다.
+print(item)
 
 
+# fruits  year  time
+# 0       apple  2001     1
+# 1      orange  2002     4
+# 2      banana  2001     5
+# 3  strawberry  2008     6
+# 4   kiwifruit  2006     3
+# 5       mango  2008     7
 # In[15]:
 
 import pandas as pd
@@ -334,6 +360,8 @@ series2 = pd.Series(data2, index=index)
 
 new_column = pd.Series([15, 7], index=[0, 1])
 
+print(new_column)
+
 # series1, seires2로 DataFrame을 생성합니다
 df = pd.DataFrame([series1, series2])
 
@@ -343,7 +371,9 @@ df["mango"] = new_column
 # 출력합니다
 print(df)
 
-
+#    apple  orange  banana  strawberry  kiwifruit  mango
+# 0     10       5       8          12          3     15
+# 1     30      25      12          10          8      7
 # In[66]:
 
 
@@ -352,10 +382,24 @@ data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
         "time": [1, 4, 5, 6, 3]}
 df = pd.DataFrame(data)
 
-df = pd.DataFrame(data)
 
-print(df)
+print(df[1])
+# print(df[1][1])
 
+
+# fruits  year  time
+# 0       apple  2001     1
+# 1      orange  2002     4
+# 2      banana  2001     5
+# 3  strawberry  2008     6
+# 4   kiwifruit  2006     3
+# 0    2001
+# 1    2002
+# 2    2001
+# 3    2008
+# 4    2006
+# Name: year, dtype: int64
+# 2002
 
 # In[67]:
 import pandas as pd
@@ -376,10 +420,15 @@ import pandas as pd
 data = {"fruits": ["apple", "orange", "banana", "strawberry", "kiwifruit"],
         "year": [2001, 2002, 2001, 2008, 2006],
         "time": [1, 4, 5, 6, 3]}
-df = pd.DataFrame(data)
+df = pd.DataFrame(data,index = ("abcde".split()))
+# df = pd.DataFrame(data,index = "abcde")
 
-df = df.loc[[1,2],["time","year"]]
+df = df.loc[["b","c"],["time","year"]]#column과 같은 경우
 print(df)
+
+# time  year
+# 1     4  2002
+# 2     5  2001
 
 
 # In[17]:

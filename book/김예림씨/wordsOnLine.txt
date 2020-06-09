@@ -1,0 +1,2 @@
+1 conda 
+2 activate base 

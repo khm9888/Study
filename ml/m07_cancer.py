@@ -56,6 +56,8 @@ model.fit(x_train,y_train)
 score = model.score(x_test,y_test)
 #test
 
+model.
+
 # loss,ac=model.evaluate(x_test,y_test)
 
 y_pre = model.predict(x_test)

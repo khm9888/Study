@@ -320,6 +320,7 @@
 # # 9   1.732051  3.000000  2.449490    1.000000   1.732051
 # # 10  2.236068  1.414214  1.000000    1.414214   1.000000
 
+
 import numpy as np
 import pandas as pd
 np.random.seed(0)
@@ -331,89 +332,155 @@ for column in columns:
     df[column] = np.random.choice(range(1, 11), 10)
 df.index = range(1, 11)
 
-# df의 통계 정보 중 "mean", "max", "min"을 꺼내 df_des에 대입하세요
-df_des = df.describe()
+df.info()
 
-print(df_des)
-#            apple     orange     banana  strawberry  kiwifruit
-# count  10.000000  10.000000  10.000000   10.000000  10.000000
-# mean    5.100000   6.900000   5.600000    4.100000   5.300000
-# std     2.558211   2.685351   3.306559    2.558211   3.465705
-# min     1.000000   2.000000   1.000000    1.000000   1.000000
-# 25%     4.000000   7.000000   4.000000    2.250000   3.000000
-# 50%     4.500000   8.000000   5.500000    4.000000   4.500000
-# 75%     6.000000   8.750000   8.250000    4.000000   8.000000
-# max    10.000000   9.000000  10.000000    9.000000  10.000000
+# <class 'pandas.core.frame.DataFrame'>
+# RangeIndex: 10 entries, 1 to 10
+# Data columns (total 5 columns):
+#  #   Column      Non-Null Count  Dtype
+# ---  ------      --------------  -----
+#  0   apple       10 non-null     int32
+#  1   orange      10 non-null     int32
+#  2   banana      10 non-null     int32
+#  3   strawberry  10 non-null     int32
+#  4   kiwifruit   10 non-null     int32
+# dtypes: int32(5)
+# memory usage: 332.0 bytes
 
-df_des = df.describe().loc[["mean", "max", "min"]]
-print(df_des)
-#       apple  orange  banana  strawberry  kiwifruit
-# mean    5.1     6.9     5.6         4.1        5.3
-# max    10.0     9.0    10.0         9.0       10.0
-# min     1.0     2.0     1.0         1.0        1.0
-
-import numpy as np
-import pandas as pd
-np.random.seed(0)
-columns = ["apple", "orange", "banana", "strawberry", "kiwifruit"]
-
-df = pd.DataFrame()
-for column in columns:
-    df[column] = np.random.choice(range(1, 11), 10)
-df.index = range(1, 11)
-
-df_diff = df.diff(-2, axis=0)
-
-print(df)
-#     apple  orange  banana  strawberry  kiwifruit
-# 1       6       8       6           3         10
-# 2       1       7      10           4         10
-# 3       4       9       9           9          1
-# 4       4       9      10           2          5
-# 5       8       2       5           4          8
-# 6      10       7       4           4          4
-# 7       4       8       1           4          3
-# 8       6       8       4           8          8
-# 9       3       9       6           1          3
-# 10      5       2       1           2          1
-
-print(df_diff)
-#     apple  orange  banana  strawberry  kiwifruit
-# 1     2.0    -1.0    -3.0        -6.0        9.0
-# 2    -3.0    -2.0     0.0         2.0        5.0
-# 3    -4.0     7.0     4.0         5.0       -7.0
-# 4    -6.0     2.0     6.0        -2.0        1.0
-# 5     4.0    -6.0     4.0         0.0        5.0
-# 6     4.0    -1.0     0.0        -4.0       -4.0
-# 7     1.0    -1.0    -5.0         3.0        0.0
-# 8     1.0     6.0     3.0         6.0        7.0
-# 9     NaN     NaN     NaN         NaN        NaN
-# 10    NaN     NaN     NaN         NaN        NaN
+# import numpy as np
+# import pandas as pd
+# np.random.seed(0)
+# columns = ["apple", "orange", "banana", "strawberry", "kiwifruit"]
 
 
-import pandas as pd
 
-prefecture_df = pd.DataFrame([["Tokyo", 2190, 13636, "Kanto"], 
-                              ["Kanagawa", 2415, 9145, "Kanto"],
-                              ["Osaka", 1904, 8837, "Kinki"],
-                              ["Kyoto", 4610, 2605, "Kinki"],
-                              ["Aichi", 5172, 7505, "Chubu"]],
-                             columns=["Prefecture", "Area",
-                                      "Population", "Region"])
 
-print(prefecture_df)
+# # DataFrame을 생성하고 열을 추가합니다
+# df = pd.DataFrame()
+# for column in columns:
+#     df[column] = np.random.choice(range(1, 11), 10)
+# df.index = range(1, 11)
 
-grouped_region = prefecture_df.groupby("Region")
+# # df의 통계 정보 중 "mean", "max", "min"을 꺼내 df_des에 대입하세요
+# df_des = df.describe()
 
-mean_df = grouped_region.mean()
+# print(df_des)
+# #            apple     orange     banana  strawberry  kiwifruit
+# # count  10.000000  10.000000  10.000000   10.000000  10.000000
+# # mean    5.100000   6.900000   5.600000    4.100000   5.300000
+# # std     2.558211   2.685351   3.306559    2.558211   3.465705
+# # min     1.000000   2.000000   1.000000    1.000000   1.000000
+# # 25%     4.000000   7.000000   4.000000    2.250000   3.000000
+# # 50%     4.500000   8.000000   5.500000    4.000000   4.500000
+# # 75%     6.000000   8.750000   8.250000    4.000000   8.000000
+# # max    10.000000   9.000000  10.000000    9.000000  10.000000
 
-# 출력합니다
-print(mean_df)
-#           Area  Population
-# Region
-# Chubu   5172.0      7505.0
-# Kanto   2302.5     11390.5
-# Kinki   3257.0      5721.0
+# df_des = df.describe().loc[["mean", "max", "min"]]
+# print(df_des)
+# #       apple  orange  banana  strawberry  kiwifruit
+# # mean    5.1     6.9     5.6         4.1        5.3
+# # max    10.0     9.0    10.0         9.0       10.0
+# # min     1.0     2.0     1.0         1.0        1.0
 
-#
-df = pd.read_csv("./ra")
+# import numpy as np
+# import pandas as pd
+# np.random.seed(0)
+# columns = ["apple", "orange", "banana", "strawberry", "kiwifruit"]
+
+# df = pd.DataFrame()
+# for column in columns:
+#     df[column] = np.random.choice(range(1, 11), 10)
+# df.index = range(1, 11)
+
+# df_diff = df.diff(-2, axis=0)
+
+# print(df)
+# #     apple  orange  banana  strawberry  kiwifruit
+# # 1       6       8       6           3         10
+# # 2       1       7      10           4         10
+# # 3       4       9       9           9          1
+# # 4       4       9      10           2          5
+# # 5       8       2       5           4          8
+# # 6      10       7       4           4          4
+# # 7       4       8       1           4          3
+# # 8       6       8       4           8          8
+# # 9       3       9       6           1          3
+# # 10      5       2       1           2          1
+
+# print(df_diff)
+# #     apple  orange  banana  strawberry  kiwifruit
+# # 1     2.0    -1.0    -3.0        -6.0        9.0
+# # 2    -3.0    -2.0     0.0         2.0        5.0
+# # 3    -4.0     7.0     4.0         5.0       -7.0
+# # 4    -6.0     2.0     6.0        -2.0        1.0
+# # 5     4.0    -6.0     4.0         0.0        5.0
+# # 6     4.0    -1.0     0.0        -4.0       -4.0
+# # 7     1.0    -1.0    -5.0         3.0        0.0
+# # 8     1.0     6.0     3.0         6.0        7.0
+# # 9     NaN     NaN     NaN         NaN        NaN
+# # 10    NaN     NaN     NaN         NaN        NaN
+
+
+# import pandas as pd
+
+# prefecture_df = pd.DataFrame([["Tokyo", 2190, 13636, "Kanto"], 
+#                               ["Kanagawa", 2415, 9145, "Kanto"],
+#                               ["Osaka", 1904, 8837, "Kinki"],
+#                               ["Kyoto", 4610, 2605, "Kinki"],
+#                               ["Aichi", 5172, 7505, "Chubu"]],
+#                              columns=["Prefecture", "Area",
+#                                       "Population", "Region"])
+
+# print(prefecture_df)
+
+# grouped_region = prefecture_df.groupby("Region")
+
+# mean_df = grouped_region.mean()
+
+# # 출력합니다
+# print(mean_df)
+# #           Area  Population
+# # Region
+# # Chubu   5172.0      7505.0
+# # Kanto   2302.5     11390.5
+# # Kinki   3257.0      5721.0
+
+# #
+# df = pd.read_csv("winequality-white.csv",index_col=0,header=0,encoding="cp949",sep=";")
+
+# print(df.head())
+# #                volatile acidity  citric acid  residual sugar  chlorides  free sulfur dioxide
+# # fixed acidity
+# # 7.0                        0.27         0.36            20.7      0.045                 45.0
+# # 6.3                        0.30         0.34             1.6      0.049                 14.0
+# # 8.1                        0.28         0.40             6.9      0.050                 30.0
+# # 7.2                        0.23         0.32             8.5      0.058                 47.0
+# # 7.2                        0.23         0.32             8.5      0.058                 47.0
+
+# df2 = pd.read_csv("winequality-white.csv",index_col=0,header=None,names=list(range(1,14)),
+#                   skiprows=1, encoding="cp949",sep=";")
+
+# print(df2.head())
+
+# #        2     3     4      5     6      7       8     9     10    11  12  13
+# # 1
+# # 7.0  0.27  0.36  20.7  0.045  45.0  170.0  1.0010  3.00  0.45   8.8   6 NaN
+# # 6.3  0.30  0.34   1.6  0.049  14.0  132.0  0.9940  3.30  0.49   9.5   6 NaN
+# # 8.1  0.28  0.40   6.9  0.050  30.0   97.0  0.9951  3.26  0.44  10.1   6 NaN
+# # 7.2  0.23  0.32   8.5  0.058  47.0  186.0  0.9956  3.19  0.40   9.9   6 NaN
+# # 7.2  0.23  0.32   8.5  0.058  47.0  186.0  0.9956  3.19  0.40   9.9   6 NaN
+
+# df.to_csv("submission.csv",sep=",",index=True, header=True,
+#           columns=["volatile acidity"],index_label="index_name")
+
+# df = pd.read_csv("submission.csv",index_col=0,header=0)
+
+# print(df.head())
+
+# #             volatile acidity
+# # index_name
+# # 7.0                     0.27
+# # 6.3                     0.30
+# # 8.1                     0.28
+# # 7.2                     0.23
+# # 7.2                     0.23

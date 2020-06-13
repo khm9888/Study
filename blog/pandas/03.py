@@ -414,3 +414,6 @@ print(mean_df)
 # Chubu   5172.0      7505.0
 # Kanto   2302.5     11390.5
 # Kinki   3257.0      5721.0
+
+#
+df = pd.read_csv("./ra")

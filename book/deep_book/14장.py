@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
+# In[10]:             
 
 
 import pandas as pd
@@ -107,7 +107,7 @@ attri_data_frame2 = DataFrame(attri_data2)
 # 여기에 해답을 기술하세요
 attri_data_frame1.append(attri_data_frame2).sort_values(by="ID", ascending=True).reset_index(drop=True)
 
-
+print(attri_data_frame1)
 # In[23]:
 
 

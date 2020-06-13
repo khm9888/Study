@@ -16,6 +16,14 @@ def make_random_df(index, columns, seed):
     df.index = index
     return df
 
+def make_random_df(index, columns, seed):
+    np.random.seed(seed)
+    df = pd.DataFrame()
+    for column in columns:
+        df[column] = np.random.choice(range(1,101),len(index))
+    df.index = index
+    return df
+
 # 인덱스와 컬럼이 일치하는 DataFrame을 만듭니다
 columns = ["apple", "orange", "banana"]
 df_data1 = make_random_df(range(1, 5), columns, 0)

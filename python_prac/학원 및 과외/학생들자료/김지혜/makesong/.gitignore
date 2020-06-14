@@ -1,8 +1,0 @@
-*.swp
-*.pyc
-.coverage
-htmlcov
-.tox
-_build/
-.cache
-build/

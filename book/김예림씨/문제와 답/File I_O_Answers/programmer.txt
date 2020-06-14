@@ -1,3 +1,0 @@
-A computer programmer, sometimes called only programmer or more recently a coder (especially in more informal contexts), is a person who creates computer software. The term computer programmer can refer to a specialist in one area of computers, or to a generalist who writes code for many kinds of software.
-
-A range of occupations that involve programming also often require a range of other, similar skills, for example, (software) developer, web developer, mobile applications developer, embedded firmware developer, software engineer, computer scientist, game programmer, game developer, and software analyst. The use of the term programmer as applied to these positions is sometimes considered an insulting simplification or even derogatory.

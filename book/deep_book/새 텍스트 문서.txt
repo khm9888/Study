@@ -1,1 +1,0 @@
-jupyter nbconvert --to script 12장.ipynb

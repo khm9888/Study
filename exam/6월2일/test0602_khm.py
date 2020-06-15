@@ -154,6 +154,7 @@ for epochs in range(10,121,5):
 
     model.save(F"./{__file__[-15:-3]}-{epochs}.h5")
     # # 4)테스트
+    D:\Study\exam\6월2일\test0602_khm.py
 
     loss = model.evaluate([x_h_test,x_test],y_test,batch_size=1)
     y_pre=model.predict([x_h_test,x_test])

@@ -20,9 +20,10 @@ import matplotlib.pyplot as plt
 
 #0. 데이터 전처리
 
-wine_df = pd.read_csv("./data/winequality-white.csv",header=0,encoding="cp949",sep=";")
+# wine_df = pd.read_csv("./data/winequality-white.csv",header=0,encoding="cp949",sep=";")
+wine_df = pd.read_csv("D:\Study\ml\winequality-white.csv",header=0,encoding="cp949",sep=";")
 
-count_data = wine_df.groupby(["quality"])
+count_data = wine_df.groupby("quality")["quality"]
 
 
 print(count_data)

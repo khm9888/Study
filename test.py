@@ -32,3 +32,5 @@ model.fit(x_train, y_train)
 acc = model.score(x_test, y_test)
 print("최적의 매개 변수 : ", model.best_estimator_)
 print("acc: ", acc)
+
+v= list(np.random.rand(100))

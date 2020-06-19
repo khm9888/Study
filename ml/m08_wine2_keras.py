@@ -23,8 +23,6 @@ for pca_n in range(8,9):
 
     wine_df = pd.read_csv("./data/winequality-white.csv",header=0,encoding="cp949",sep=";")
 
-    
-
     # print(wine_df.info())
     # print(wine_df.columns)
     # print(wine_df.head)

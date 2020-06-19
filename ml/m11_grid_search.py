@@ -1,8 +1,7 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split as tts, KFold, cross_val_score,GridSearchCV
+from sklearn.model_selection import train_test_split as tts, KFold, cross_val_score, GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.utils.testing import all_estimators
-from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 
 

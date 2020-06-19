@@ -1,7 +1,7 @@
 from keras.datasets import mnist
 from keras.utils import np_utils
 from keras.models import Sequential,Model
-from keras.layers import Dropout, MaxPool2D, Conv2D, Flatten, Dense, Input
+from keras.layers import Dropout, MaxPool2D, Conv2D, Flatten, Dense, Input,Dropout
 import numpy as np
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
@@ -46,7 +46,7 @@ def build_model(drop = 0.5, optimizer = "adam"):
 def create_hyperparameter():
     # batches = list(range(10,60,10))#5번
     optimizers = ["rmsprop","adam","adadelta"]#3번
-    dropout = np.linspace(0.1,0.3, 2)#1번
+    # dropout = np.linspace(0.1,0.3, 2)#1번
     # return {'''"batch_size":batches,''' "optimizer":optimizers, "drop": dropout }
     return  {"optimizer":optimizers }
     

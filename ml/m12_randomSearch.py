@@ -9,28 +9,11 @@ from keras.datasets import mnist
 
 (x_train,y_train),(x_test,y_test)=mnist.load_data()
 
-# print(type(x_train))#array
-
-# iris = pd.read_csv("./data/csv/iris.csv",index_col=None,header=0)
-
-# iris.info()
-# print(iris.head())
-
-# x=iris.iloc[:,0:4]
-# y=iris.iloc[:,4]
-# print(x)
-# x= iris[]
-# x_train,x_test,y_train,y_test=tts(x,y,train_size=0.8)
-
 x_train=x_train.reshape(-1,x_train.shape[1]*x_train.shape[2])
 x_test=x_test.reshape(-1,x_test.shape[1]*x_test.shape[2])
 
 paraemeters = {'bootstrap': [True, False]}
-#  'max_depth': [10, 40, 50, 100, None],
-#  'max_features': ['auto', 'sqrt'],
-#  'min_samples_leaf': [1, 2, 4],
-#  'min_samples_split': [2, 5, 10],
-#  'n_estimators': [200, 400, 1000, 2000]}
+
 
 
 kfold = KFold(n_splits=5,shuffle=True)

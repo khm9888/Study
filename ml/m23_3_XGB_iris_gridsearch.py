@@ -44,6 +44,7 @@ parameters = {
 xgb = XGBClassifier (max_depth=max_depth, n_estimators=n_estimators, learning_rate=learning_rate, colsample_bytree=colsample_bytree,
                       colsample_bylevel=colsample_bylevel,n_jobs=n_jobs)
 
+
 #트리구조는 전처리를 안 해도 됨. - pipeline,
 #결측치 제거 안 해도 됨 - 보간법 적용.
 #해주긴 하지만, 보간법 적용하는게 나을 수 있음.

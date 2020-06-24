@@ -38,12 +38,12 @@ import joblib
 
 joblib.dump(xgb,"./model/xgb_save/cancer.joblib.dat")
 
-print(123)
+print("start")
 
 # model2 = pickle.load(open("./model/xgb_save/cancer.plckle.dat","rb"))
 model2 = joblib.load("./model/xgb_save/cancer.plckle.dat")
 
-print(123)
+print("end")
 
 acc = accuracy_score(y_test,y_pre)
 print(acc)

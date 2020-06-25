@@ -1,9 +1,6 @@
-import numpy as np
 
-v= np.array(list(np.random.rand(100)))*10
-v= v.astype("int")
 
-print(v)
-v=list(v)
-print(v.count(1))
 
+# first = [[yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]]
+
+# [[crow_mask, face], [blue_sunglasses, face], [smoky_makeup, face]]

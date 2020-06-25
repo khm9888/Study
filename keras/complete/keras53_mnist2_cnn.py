@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from keras.datasets import mnist
 
 
-
+batch =128
 
 (x_train,y_train),(x_test,y_test) = mnist.load_data()
 
@@ -36,20 +36,22 @@ x_test= x_test /255
 
 #모델구성
 from keras.models import Sequential
-from keras.layers import Dense,Conv2D,MaxPool2D,Flatten
+from keras.layers import Dense,Conv2D,MaxPooling2D,Flatten,Activation,Dropout
 
 model= Sequential()
 
-model.add(Conv2D(300,(4,4),input_shape=(28,28,1)))
-model.add(Conv2D(300,(4,4),input_shape=(28,28,1)))
-# model.add(Conv2D(100,(3,3)))
-# model.add(Conv2D(100,(4,4)))
-
-
-model.add(MaxPool2D(pool_size=(4,4)))
+model.add(Conv2D(32, kernel_size=(3, 3),input_shape=(28,28,1)))
+model.add(Activation('relu'))
+model.add(Conv2D(filters=64, kernel_size=(3, 3)))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
 model.add(Flatten())
-model.add(Dense(10,activation="softmax"))
-
+model.add(Dense(128))
+model.add(Activation('relu'))
+model.add(Dropout(0.5))
+model.add(Dense(10))
+model.add(Activation('softmax'))
 model.summary()
 
 #훈련
@@ -57,7 +59,7 @@ model.summary()
 
 print("-"*20+str(batch)+"-"*20)
 model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["acc"])
-model.fit(x_train,y_train,epochs=1,batch_size=batch,validation_split=0.1)
+model.fit(x_train,y_train,epochs=20,batch_size=batch,validation_split=0.1)
 
 #테스트
 
@@ -72,3 +74,8 @@ print(f"acc:{acc}")
 
 print(f"y_test[0:10]:{y_test[0:10]}")
 print(f"y_pre[0:10]:{y_pre[0:10]}")
+
+# loss:0.052733493065834046
+# acc:0.984000027179718
+# y_test[0:10]:[7 2 1 0 4 1 4 9 5 9]
+# y_pre[0:10]:[7 2 1 0 4 1 4 9 5 9]

@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from keras.models import Sequential, Model
-from keras.layers import Dense, Conv2D, Dropout
+from keras.layers import Dense, Conv2D, Dropout,BatchNormalization
 from keras.layers import Flatten, MaxPooling2D, Input
 from keras.datasets import cifar10
+from keras.preprocessing.image import ImageDataGenerator
 
 #데이터구성
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -30,6 +31,19 @@ x_test=scaler.transform(x_test)
 
 #y값에 np_utils.to_categorical()
 
+# # Generator를 생성하세요
+# datagen = ImageDataGenerator(zca_whitening=True)
+
+# # 백색화합니다
+# datagen.fit(x_train)
+# g = datagen.flow(x_train, y_train, shuffle=False)
+# x_train, y_train = g.next()
+
+# # 생성한 이미지를 보기 좋게 만듭니다
+# x_train *= 127.0 / max(abs(x_train.min()), abs(x_train.max()))
+# x_train += 127
+# x_train = x_train.astype('uint8')
+
 from keras.utils import np_utils
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
@@ -38,13 +52,16 @@ y_test = np_utils.to_categorical(y_test)
 
 x_train=x_train.reshape(-1,32,32,3)
 x_test=x_test.reshape(-1,32,32,3)
+
 #모델
 
 input1=Input(shape=(32,32,3))
 conv=Conv2D(30,(2,2),padding="same",activation="relu")(input1)
 conv=Conv2D(30,(2,2),padding="same",activation="relu")(conv)
+conv=BatchNormalization()(conv)
 conv=Conv2D(30,(2,2),padding="same",activation="relu")(conv)
 conv=Conv2D(30,(2,2),padding="same",activation="relu")(conv)
+conv=BatchNormalization()(conv)
 conv=Conv2D(30,(2,2),padding="same",activation="relu")(conv)
 max1=MaxPooling2D(pool_size=3)(conv)
 flat1=Flatten()(max1)
@@ -58,7 +75,7 @@ model.summary()
 #트레이닝
 
 model.compile(loss="categorical_crossentropy", optimizer="adam",metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=100,epochs=30,validation_split=0.1)
+model.fit(x_train,y_train,batch_size=100,epochs=10,validation_split=0.2)
 
 #테스트
 

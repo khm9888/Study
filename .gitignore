@@ -1,4 +1,5 @@
 *.h5
+*.jpg
 *.hdf5
 *.csv
 model/model.h5

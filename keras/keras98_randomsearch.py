@@ -6,7 +6,7 @@ import numpy as np
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 # from sklearn. import scroe
-
+#%%
 #데이터 입력
 
 # print(type(mnist.load_data()))
@@ -63,3 +63,5 @@ search.fit(x_train,y_train)
 print(search.best_params_)
 
      
+
+# %%

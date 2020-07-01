@@ -46,3 +46,4 @@ print(".\/dir")#폴더 생성해야함
 print("clear")
 
 model.summary()
+

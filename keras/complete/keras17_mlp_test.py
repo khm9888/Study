@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.metrics import mean_squared_error as mse, r2_score
 
 x=np.array([range(1,101),range(311,411),range(100)])
 y=np.array(range(711,811))
@@ -50,7 +51,6 @@ print(f"acc:{acc}")
 
 y_predict=model.predict(x_test)
 
-from sklearn.metrics import mean_squared_error as mse, r2_score
 
 def rmse(y_test,y_predict):
     return np.sqrt(mse(y_test,y_predict))

@@ -17,7 +17,7 @@ print(f"y_test.shape:{y_test.shape}")
 plt.imshow(x_train[0],"gray")#imshow는 무엇인가.
 # plt.show()
 
-x_train = x_train[0]
+x_train = x_train[0] 
 x_test = x_test[0]
 
 #데이터 전처리

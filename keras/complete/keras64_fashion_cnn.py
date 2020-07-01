@@ -20,6 +20,7 @@ x_train=x_train.reshape(-1,x_train.shape[1]*x_train.shape[2])
 x_test=x_test.reshape(-1,x_test.shape[1]*x_test.shape[2])
 
 
+
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 

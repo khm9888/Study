@@ -27,7 +27,7 @@ x_train, x_test, y_train, y_test = tts(x,y,train_size=0.8,
 xgb = XGBRegressor(n_estimators=100,learning_rate = 0.1,n_jobs=-1)
 
 xgb.fit(x_train,y_train,verbose=True, eval_metric=["logloss","rmse"],
-        eval_set=[(x_train, y_train), (x_test,y_test)],early_stopping_rounds=20)
+        eval_set=[(x_train, y_train)],early_stopping_rounds=20)
 
 
 #rmse,mae,logloss,error,auc

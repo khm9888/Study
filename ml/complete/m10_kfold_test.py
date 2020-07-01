@@ -13,8 +13,8 @@ iris = pd.read_csv('./data/csv/iris.csv', header=0)
 x = iris.iloc[:, 0:4]
 y = iris.iloc[:, 4]
 
-print(x)
-print(y)
+# print(x)
+# print(y)
 
 warnings.filterwarnings('ignore')
 
@@ -22,6 +22,10 @@ warnings.filterwarnings('ignore')
 # x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=44)
 
 kfol = KFold(n_splits=5, shuffle=True)   # 5개씩 나눠서 20프로씩 나누겠다 20프로 검증 80프로 테스트 (각 데이터를 검증 할수 있음)
+print()
+for i in kfol.split(x):
+    print(i )
+print()
 
 warnings.filterwarnings('ignore')
 allAlgorithms = all_estimators(type_filter='classifier')  # 모든 클래스파이어값들이 들어있음

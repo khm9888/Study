@@ -39,6 +39,7 @@ def build_model(drop = 0.5, optimizer = "adam"):
     outputs = Dense(10,activation="softmax")(x)
     
     model = Model(inputs = inputs,outputs = outputs)
+    
     model.compile(loss ="categorical_crossentropy",optimizer=optimizer,metrics=["acc"])
     # model.fit(x_train,y_train,batch_size=100)
     
@@ -54,6 +55,8 @@ def create_hyperparameter():
     
 model = KerasClassifier(build_fn=build_model,verbose=1)
 # build_model()
+
+
 
 hyperparameters = create_hyperparameter()
 

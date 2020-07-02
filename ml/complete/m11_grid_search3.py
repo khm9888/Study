@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import load_breast_cancer
-
+import numpy as np
 dataset=load_breast_cancer()
 print(dataset.keys())
 x=dataset.data
@@ -37,7 +37,15 @@ paraemeters = [
  'n_estimators': [200, 600,  1600, 2000]}
 ]
 
+
+
+print(np.sort.__code__.co_varnames)
+input()
 kfold = KFold(n_splits=5,shuffle=True)
+
+print(kfold.__code__.co_varnames)
+input()
+
 
 model = GridSearchCV(RandomForestClassifier(),paraemeters,cv=kfold,n_jobs=-1)
 

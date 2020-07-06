@@ -3,6 +3,7 @@
 *.hdf5
 *.csv
 etc
+data
 model/model.h5
 model/test_weight.h5
 model/1/- 1-0.0960.hdf5

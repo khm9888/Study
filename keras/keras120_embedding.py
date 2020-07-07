@@ -1,4 +1,4 @@
-from keras.preprocessing.text import Tokenizer,on
+from keras.preprocessing.text import Tokenizer
 from keras.utils.np_utils import to_categorical
 text = "i eat a delicious rice"
 
@@ -17,3 +17,5 @@ word_size = len(token.word_index)+1
 x = to_categorical(x,num_classes=word_size)
 x = to_categorical(x)
 print(x)
+
+

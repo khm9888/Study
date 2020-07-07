@@ -39,7 +39,7 @@ model.summary()
 #트레이닝
 
 model.compile(loss="categorical_crossentropy", optimizer="rmsprop", metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=100,epochs=1,validation_split=0.1)
+model.fit(x_train,y_train,batch_size=100,epochs=5,validation_split=0.1)
 
 #테스트
 
@@ -64,4 +64,11 @@ loss:0.10343475129455328
 acc:0.968500018119812
 y_test[0:10]:[7 2 1 0 4 1 4 9 5 9]
 y_pre[0:10]:[7 2 1 0 4 1 4 9 6 9]
+'''
+'''
+d:\Study\keras\complete\keras56_mnist_dnn.py
+loss:0.07444502667345204
+acc:0.9822999835014343
+y_test[0:10]:[7 2 1 0 4 1 4 9 5 9]
+y_pre[0:10]:[7 2 1 0 4 1 4 9 5 9]
 '''

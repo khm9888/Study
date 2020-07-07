@@ -3,5 +3,6 @@
     "powermode.enabled": true,
     "powermode.customCss": {
     
-    }
+    },
+    "python.pythonPath": "C:\\Users\\bitcamp\\anaconda3\\python.exe"
 }

@@ -25,7 +25,7 @@ print(y_distribution)
 y_train_pd = pd.DataFrame(y_train)
 print("y_train_pd")
 print(y_train_pd[0])
-bbb = y_train_pd.groupby(0).count().
+bbb = y_train_pd.groupby(0).count()
 # bbb = y_train_pd.groupby(0).count()
 print("bbb")
 print(bbb)
@@ -46,7 +46,7 @@ y_test = to_categorical(y_test)
 print(x_train.shape,y_train.shape)
 
 from keras.models import Sequential
-from keras.layers import Embedding, Dense, LSTM,Flatten,MaxPool1D,Conv1D,Bidirectional,
+from keras.layers import Embedding, Dense, LSTM,Flatten,MaxPool1D,Conv1D,Bidirectional
 import matplotlib.pyplot as plt
 
 
@@ -57,7 +57,7 @@ model.add(Embedding(1000,100,input_length=111))
 model.add(Conv1D(64, 5, padding='same', activation='relu', strides=1))
 # model.add(MaxPool1D(pool_size=4))
 # model.add(LSTM(100,activation="relu"))
-
+model.add(Bidirectional(LSTM(64)))
 model.add(Dense(39,activation="relu"))
 model.add(Dense(2,activation="sigmoid"))
 

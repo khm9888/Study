@@ -1,6 +1,6 @@
 from keras.preprocessing.text import Tokenizer
 import numpy as np
-from collections import Counter 
+
 docs = ["너무 재밋어요", "참 최고에요", "참 잘 만든 영화에요","추천하고 싶은 영화입니다", "한 번 더 보고 싶네요", 
         "글쎄요", "별로에요", "생각보다 지루해요", "연기가 어색해요", "재미없어요",
         "너무 재미없다", "참 재밋네요", "재미없어요"]
@@ -12,9 +12,8 @@ labels = np.array([1,1,1,1,1,1,0,0,0,0,0,0,0])
 # 토큰화 
 token = Tokenizer()
 token.fit_on_texts(docs)# 각 워드별로 잘라서, 빈도 수 순으로 학습
-token.
-print(Counter(token))# 빈도 순으로 정렬해서, index 한다.
-
+print("token.word_index")
+print(token.word_index)# 빈도 순으로 정렬해서, index 한다.
 
 # token.word_index
 # {'참': 1, '너무': 2, '재미없어요': 3, '재밋어요': 4, '최고에요': 5, '잘': 6, '만든': 7, '영화에요': 8, '추천하고': 9, '싶은': 10, '영화입니다': 11, '한번': 12, '더': 13, '보고': 14, '싶네요': 15, '글쎄요': 16, '별로에요': 17, '생각보

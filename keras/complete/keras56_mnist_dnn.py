@@ -38,7 +38,7 @@ model.summary()
 
 #트레이닝
 
-model.compile(loss="categorical_crossentropy", optimizer="rmsprop", metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 model.fit(x_train,y_train,batch_size=100,epochs=5,validation_split=0.1)
 
 #테스트

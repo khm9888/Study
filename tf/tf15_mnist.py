@@ -11,8 +11,8 @@ print(x_train.shape)#(60000, 28, 28)
 print(y_train.shape)#(60000,)
 
 
-x_train = x_train.reshape(-1,x_train.shape[1]*x_train.shape[2])
-x_test = x_test.reshape(-1,x_test.shape[1]*x_test.shape[2])
+x_train = x_train.reshape(-1,x_train.shape[1]*x_train.shape[2])/255
+x_test = x_test.reshape(-1,x_test.shape[1]*x_test.shape[2])/255
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
@@ -28,48 +28,49 @@ y = tf.placeholder(tf.float32, shape=[None,10])
 
 w = tf.Variable(tf.random_normal([28*28,100]),name="weight")
 b = tf.Variable(tf.random_normal([100]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(x,w)+b)
 layer = tf.nn.softmax(tf.matmul(x,w)+b)
 #model.add(Dense(100,input_shape=(2,)))
 
-w = tf.Variable(tf.random_normal([100,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-w = tf.Variable(tf.random_normal([50,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-
-w = tf.Variable(tf.random_normal([50,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-
-w = tf.Variable(tf.random_normal([50,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-
-w = tf.Variable(tf.random_normal([50,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-
-w = tf.Variable(tf.random_normal([50,50]),name="weight")
-b = tf.Variable(tf.random_normal([50]),name="bias")
-layer = tf.nn.softmax(tf.matmul(layer,w)+b)
-#model.add(Dense(50))
-
-w = tf.Variable(tf.random_normal([50,10]),name="weight")
+w = tf.Variable(tf.random_normal([100,10]),name="weight")
 b = tf.Variable(tf.random_normal([10]),name="bias")
-hypothesis = tf.nn.softmax(tf.matmul(layer,w)+b)
+layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+#model.add(Dense(50))
 
-loss = tf.reduce_mean(-tf.reduce_sum(y*tf.log(hypothesis),axis=1))
+# w = tf.Variable(tf.random_normal([50,50]),name="weight")
+# b = tf.Variable(tf.random_normal([50]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+# #model.add(Dense(50))
+
+
+# w = tf.Variable(tf.random_normal([50,50]),name="weight")
+# b = tf.Variable(tf.random_normal([50]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+# #model.add(Dense(50))
+
+
+# w = tf.Variable(tf.random_normal([50,50]),name="weight")
+# b = tf.Variable(tf.random_normal([50]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+# #model.add(Dense(50))
+
+
+# w = tf.Variable(tf.random_normal([50,50]),name="weight")
+# b = tf.Variable(tf.random_normal([50]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+# #model.add(Dense(50))
+
+
+# w = tf.Variable(tf.random_normal([50,50]),name="weight")
+# b = tf.Variable(tf.random_normal([50]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+# #model.add(Dense(50))
+
+# w = tf.Variable(tf.random_normal([50,10]),name="weight")
+# b = tf.Variable(tf.random_normal([10]),name="bias")
+# layer = tf.nn.softmax(tf.matmul(layer,w)+b)
+
+loss = tf.reduce_mean(-tf.reduce_sum(y*tf.log(layer),axis=1))
 
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.5).minimize(loss)
 # train = optimizer.minimize(cost)
@@ -79,13 +80,13 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.5).minimize(loss)
 with tf.Session() as sess:
 
     sess.run(tf.global_variables_initializer())
-    for step in range(300):
-        _,loss_val,hypo_val=sess.run([optimizer,loss,hypothesis],feed_dict={x:x_train,y:y_train})
+    for step in range(150):
+        _,loss_val,hypo_val=sess.run([optimizer,loss,layer],feed_dict={x:x_train,y:y_train})
         # if step % 10==1:
         #     print(loss_val)
         print(f"step:{step},loss_val:{loss_val}")
         # 실제로 실현되는 부분
-    correct_prediction = tf.equal(tf.argmax(hypothesis,1),tf.argmax(y,1))
+    correct_prediction = tf.equal(tf.argmax(layer,1),tf.argmax(y,1))
     
     #정확도
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))

@@ -83,6 +83,8 @@ with tf.Session() as sess:
 #     print(predict,sess.run(tf.argmax(predict,axis=1)))
 
 
+# Accuracy: 0.96666664
+
 
 
 

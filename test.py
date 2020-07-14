@@ -1,6 +1,13 @@
+import numpy as np
 
-# n = int(input())
+dataset = np.arange(1,11)
+dataset = dataset.reshape(-1,1)
 
-# values = [tuple(map(int, input().split(","))) for i in range(n)]
+from sklearn.preprocessing import OneHotEncoder
 
-# [print(sum(i)) for i in values]
+encoder = OneHotEncoder()
+dataset = encoder.fit_transform(dataset)
+print(type(dataset))
+print(type(dataset.toarray()))
+print(dataset)
+print(dataset.toarray())

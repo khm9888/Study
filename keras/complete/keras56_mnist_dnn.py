@@ -32,18 +32,18 @@ from keras.layers import Dense
 model = Sequential()
 
 model.add(Dense(3000,input_shape=(28*28,),activation="relu"))
-model.add(Dense(10, activation="softmax"))
+model.add(Dense(10, activation="sigmoid"))
 
 model.summary()
 
 #트레이닝
 
-model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
-model.fit(x_train,y_train,batch_size=100,epochs=5,validation_split=0.1)
+model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+model.fit(x_train,y_train,batch_size=256,epochs=30,validation_split=0.1)
 
 #테스트
 
-loss,acc = model.evaluate(x_test,y_test,batch_size=100)
+loss,acc = model.evaluate(x_test,y_test,batch_size=256)
 
 y_pre=model.predict(x_test)
 

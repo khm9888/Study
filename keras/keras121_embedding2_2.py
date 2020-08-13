@@ -12,7 +12,7 @@ labels = np.array([1,1,1,1,1,1,0,0,0,0,0,0,0])
 # 토큰화 
 token = Tokenizer()
 token.fit_on_texts(docs)# 각 워드별로 잘라서, 빈도 수 순으로 학습
-token.
+
 print(Counter(token))# 빈도 순으로 정렬해서, index 한다.
 
 

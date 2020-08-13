@@ -25,7 +25,7 @@ print(y_distribution)
 y_train_pd = pd.DataFrame(y_train)
 print("y_train_pd")
 print(y_train_pd[0])
-bbb = y_train_pd.groupby(0).count().
+bbb = y_train_pd.groupby(0).count()
 # bbb = y_train_pd.groupby(0).count()
 print("bbb")
 print(bbb)
